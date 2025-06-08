@@ -1,0 +1,322 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-image: url(immagini/vista.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color: white;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.display-1 {
+    opacity: 0.7;
+    text-shadow: 3px 6px 4px;
+    animation: load-in .5s 1s forwards ease-in;
+}
+
+.container {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 100px black;
+    animation: fade-in .5s 1s forwards ease-in;
+}
+
+.container div {
+    text-align: center;
+}
+
+.treCard {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card1 {
+    width: 60%;
+    margin-left: 3%;
+}
+
+.card2 {
+    width: 60%;
+    margin-left: 37%;
+}
+
+.col {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.galleryImg2 {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 100px black;
+    animation: fade-in .5s 1s forwards ease-in;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.itineraryGallery2 {
+    width: 70%;
+    margin-right: auto;
+}
+
+.caroul {
+    width: 50%;
+}
+
+.carouselExampleCaptions {
+    width: 50%;
+}
+
+.container1 {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 100px black;
+    animation: fade-in .5s 1s forwards ease-in;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.didascalia {
+    margin-left: 10%;
+}
+
+.didascalia1 {
+    margin-left: 30%;
+}
+
+.didascalia2 {
+    margin-left: 20%;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-img-top {
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -ms-transition: all .8s;
+    -o-transition: all .8s;
+}
+
+.card-img-top:hover {
+    transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    -moz-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8);
+}
+
+.img-thumbnail {
+    transition: all .6s;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.2);
+}
+
+.iframe1{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+
+.imgLop {
+    margin-top: 10%;
+}
+
+.img-fluid {
+    width: 40%;
+    height: 40%;
+    margin-left: 30%;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* BOTTONE CHATBOT */
+    #Bottone {
+      background-color: #800020;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      position: fixed;
+      top: 85%;
+      right: 80px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #Bottone:hover {
+      background-color: #a52a2a;
+    }
+
+    /* CONTENITORE PRINCIPALE (SFONDO TELEFONO) */
+    .chat-container {
+      position: fixed;
+      right: 15px;
+      top: 80px;
+      width: 300px;
+      height: 600px;
+      border-radius: 40px;
+      background: white;
+      display: none; 
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    /* CORNICE CONTENITORE (TELEFONO) */
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* CONTENUTO CHAT */
+    .chat-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 15px;
+    }
+
+    /* ICONA CHAT */
+    .Full_Icone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+    #cerchio1 {
+      width: 70px;
+      height: 70px;
+      background: #800020;
+      border-radius: 50%;
+      position: relative;
+      top: 20px;
+    }
+    #cerchio2 {
+      width: 55px;
+      height: 55px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    #nome {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 7px;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 2px;
+      text-align: center;
+    }
+    #icona {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* AREA CHAT */
+    .chat-box {
+      width: 220px;
+      height: 300px;
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 15px auto 10px auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    /* AREA INPUT DOVE L'UTENTE SCRIVE MESSAGGI */
+    .input-area {
+      display: flex;
+      width: 90%;
+      margin: 0 auto 20px auto;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px 0 0 10px;
+      font-size: 14px;
+    }
+    .input-area button {
+      padding: 0 15px;
+      border: none;
+      background-color: #800020;
+      color: white;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .input-area button:hover {
+      background-color: #a00028;
+    }
+
+    /* MESSAGGI */
+    .message {
+      padding: 8px 12px;
+      border-radius: 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    /* MESSAGGI UTENTE*/
+    .user {
+      align-self: flex-end;
+      background-color: #800020;
+      opacity: 0.8;
+      color: white;
+    }
+
+    /* MESSAGGI BOT*/
+    .bot {
+      align-self: flex-start;
+      background-color: #ececec;
+      color: black;
+    }

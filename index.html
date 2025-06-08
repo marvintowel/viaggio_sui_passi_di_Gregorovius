@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-nl8g1fzkevHdGVE5z5nXpSTNkoeZngG6NVRdN0ETK8WAZJf2v/Vdumrx0Y/1TJWb" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-P+srVxoeHTbC6DfMQJ+QLK8zuQoQlKTc58JYnDMWZS8T+ujxMh92ePQJSktWqF8K" crossorigin=""></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style_localita.css">
+    
+
+    <!-- Script necessari -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <title>Viaggio sui passi di Gregorovius - Home</title>
+
+    
+    <!-- BOTTONE CHATBOT--> 
+    <style>
+    #Bottone {
+      background-color: #2c3e50;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      position: fixed;
+      top: 85%;
+      right: 80px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #Bottone:hover {
+      background-color: #2c3e50;
+    }
+
+    /* CONTENITORE PRINCIPALE (SFONDO TELEFONO) */
+    .chat-container {
+      position: fixed;
+      right: 15px;
+      top: 80px;
+      width: 300px;
+      height: 600px;
+      border-radius: 40px;
+      background: white;
+      display: none; 
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    /* CORNICE CONTENITORE (TELEFONO) */
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* CONTENUTO CHAT */
+    .chat-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 15px;
+    }
+
+    /* ICONA CHAT */
+    .Full_Icone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+    #cerchio1 {
+      width: 70px;
+      height: 70px;
+      background: #2c3e50;
+      border-radius: 50%;
+      position: relative;
+      top: 20px;
+    }
+    #cerchio2 {
+      width: 55px;
+      height: 55px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    #nome {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 7px;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 2px;
+      text-align: center;
+    }
+    #icona {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* AREA CHAT */
+    .chat-box {
+      width: 220px;
+      height: 300px;
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 15px auto 10px auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    /* AREA INPUT DOVE L'UTENTE SCRIVE MESSAGGI */
+    .input-area {
+      display: flex;
+      width: 90%;
+      margin: 0 auto 20px auto;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px 0 0 10px;
+      font-size: 14px;
+    }
+    .input-area button {
+      padding: 0 15px;
+      border: none;
+      background-color: #2c3e50;
+      color: white;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .input-area button:hover {
+      background-color: #34495e;
+    }
+
+    /* MESSAGGI */
+    .message {
+      padding: 8px 12px;
+      border-radius: 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    /* MESSAGGI UTENTE*/
+    .user {
+      align-self: flex-end;
+      background-color: #2c3e50;
+      opacity: 0.8;
+      color: white;
+    }
+
+    /* MESSAGGI BOT*/
+    .bot {
+      align-self: flex-start;
+      background-color: #ececec;
+      color: black;
+    }
+    </style>
+<!--chatbot-->
+    <script>
+      let fuse = null;
+      let datiChatbot = [];
+
+      // Caricamento asincrono delle FAQ
+      async function initializeChatbot() {
+        try {
+          const response = await fetch('FAQ_Da_Inserire.json');
+          if (!response.ok) throw new Error('Network response was not ok');
+          
+          const rawData = await response.json();
+          datiChatbot = rawData.filter(item => item.domanda?.trim());
+          
+          if (datiChatbot.length === 0) {
+            throw new Error('Nessuna FAQ valida trovata nel file');
+          }
+
+          fuse = new Fuse(datiChatbot, {
+            keys: ['domanda'],
+            threshold: 0.4,
+            includeScore: true,
+            minMatchCharLength: 3
+          });
+
+          document.getElementById('messaggi-input').disabled = false;
+          document.getElementById('send-button').disabled = false;
+          
+        } catch (error) {
+          console.error('Errore inizializzazione chatbot:', error);
+          document.getElementById('chat-box').innerHTML = 
+            `<div class="message bot">Servizio chatbot temporaneamente non disponibile</div>`;
+        }
+      }
+
+      // Mostra/nascondi chat
+      function toggleChat() {
+        const container = document.getElementById('chatContainer');
+        const bottone = document.getElementById('Bottone');
+        container.style.display = 'flex';
+        bottone.style.display = 'none';
+        
+        if (!fuse) initializeChatbot();
+      }
+
+      // Gestione invio messaggi
+      function sendMessage() {
+        const input = document.getElementById('messaggi-input');
+        const messaggio = input.value.trim();
+        if (!messaggio) return;
+
+        aggiungiMessaggio(messaggio, 'user');
+        input.value = '';
+
+        if (messaggio.startsWith('/help')) {
+          gestisciComandoHelp(messaggio);
+          return;
+        }
+
+        if (!fuse) {
+          aggiungiMessaggio("Il chatbot è in fase di caricamento...", 'bot');
+          return;
+        }
+
+        setTimeout(() => {  // Simula ritardo risposta
+          const risultati = fuse.search(messaggio);
+          processaRisultati(risultati);
+        }, 500);
+      }
+
+      function gestisciComandoHelp(messaggio) {
+        const comando = messaggio.split(' ')[0];
+        const argomento = messaggio.split(' ').slice(1).join(' ').trim();
+
+        if (argomento === '') {
+          // Mostra lista categorie
+          const categorie = [...new Set(datiChatbot.map(faq => faq.categoria))];
+          const listaCategorie = categorie.map(categoria => `• ${categoria}`).join('<br>');
+          aggiungiMessaggio(`<b>Lista categorie:</b><br>${listaCategorie}<br><br>Digita <code>/help [categoria]</code> per vedere le domande.`, 'bot');
+        } else {
+          // Mostra domande per categoria
+          const domandeCategoria = datiChatbot.filter(faq => faq.categoria.toLowerCase() === argomento.toLowerCase());
+          if (domandeCategoria.length > 0) {
+            const listaDomande = domandeCategoria.map(faq => `• ${faq.domanda}`).join('<br>');
+            aggiungiMessaggio(`<b>Domande nella categoria '${argomento}':</b><br>${listaDomande}`, 'bot');
+          } else {
+            aggiungiMessaggio(`Categoria '${argomento}' non trovata.`, 'bot');
+          }
+        }
+      }
+
+      function processaRisultati(risultati) {
+        if (risultati.length > 0 && risultati[0].score < 0.2) {
+          aggiungiMessaggio(risultati[0].item.risposta, 'bot');
+        } else {
+          const suggerimenti = risultati.slice(0, 3)
+            .map(r => `• ${r.item.domanda}`)
+            .join('<br>');
+            
+          const messaggio = risultati.length > 0 ?
+            `Forse cercavi:<br>${suggerimenti}` : 
+            "Prova a riformulare la domanda o chiedi qualcos'altro";
+            
+          aggiungiMessaggio(messaggio, 'bot');
+        }
+      }
+
+      function aggiungiMessaggio(testo, tipo) {
+        const chatBox = document.getElementById('chat-box');
+        const div = document.createElement('div');
+        div.className = `message ${tipo}`;
+        div.innerHTML = testo;
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      // Inizializzazione al caricamento della pagina
+      document.addEventListener('DOMContentLoaded', initializeChatbot);
+    </script>
+</head>
+
+<body>
+    <!-- Barra di navigazione -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-map-marked-alt me-2"></i>Viaggio sui passi di Gregorovius</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-map-marker-alt me-1"></i> Località
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Genazzano.html">Genazzano</a></li>
+                            <li><a class="dropdown-item" href="Paliano.html">Paliano</a></li>
+                            <li><a class="dropdown-item" href="Fiuggi.html">Fiuggi</a></li>
+                            <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
+                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="itinerario.html"><i class="fas fa-route me-1"></i> Itinerario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="staff.html"><i class="fas fa-users me-1"></i> Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback.html"><i class="fas fa-comment me-1"></i> Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hospitality.html"><i class="fas fa-hotel me-1"></i> Hospitality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="hero" style="background-image: url('immagini/vista_gregorovius.png');">
+        <h1>
+            <i>
+              Viaggio sui passi di Gregorovius
+            </i>
+        </h1>
+    </div>
+
+
+
+    <!-- Introduzione -->
+    <div class="container">
+        <section class="section" id="intro">
+            <h2 class="section-title">Scopri le località</h2>
+            <p class="lead text-center">
+                Esplora i luoghi descritti da Gregorovius nel suo viaggio attraverso il Lazio. Scopri la ricchezza storica e culturale di queste affascinanti località.
+            </p>
+        </section>
+
+        <!-- Località -->
+        <section class="section" id="localita">
+            <h2 class="section-title">Le nostre esperienze</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/Fiuggi.webp" class="card-img-top" alt="Fiuggi">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiuggi</h5>
+                            <p class="card-text">
+                                Conosciuta per le sue acque terapeutiche e i suoi splendidi parchi.
+                            </p>
+                            <a href="Fiuggi_getyourguide.html" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/paliano.jpg" class="card-img-top" alt="Paliano">
+                        <div class="card-body">
+                            <h5 class="card-title">Paliano</h5>
+                            <p class="card-text">
+                                Un villaggio affascinante con una ricca storia e viste mozzafiato.
+                            </p>
+                            <a href="Paliano_getyourguide.html" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Segni/Segni.webp" class="card-img-top" alt="Segni">
+                        <div class="card-body">
+                            <h5 class="card-title">Segni</h5>
+                            <p class="card-text">
+                                Famosa per i suoi siti storici e i suoi splendidi paesaggi.
+                            </p>
+                            <a href="Segni_getyourguide.html" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Montecompatri/Monte_Compatri.jpg" class="card-img-top" alt="Montecompatri">
+                        <div class="card-body">
+                            <h5 class="card-title">Montecompatri</h5>
+                            <p class="card-text">
+                                Un borgo pittoresco con una cultura vivace.
+                            </p>
+                            <a href="montecompatri_getyourguide.html" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Genazzano/genazzano.jpg" class="card-img-top" alt="Genazzano">
+                        <div class="card-body">
+                            <h5 class="card-title">Genazzano</h5>
+                            <p class="card-text">
+                                Noto per la sua splendida architettura e le viste panoramiche.
+                            </p>
+                            <a href="Genazzano_getyourguide.html" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galleria -->
+        <section class="section" id="galleria">
+            <h2 class="section-title">Galleria</h2>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="immagini/Fiuggi/Fiuggi.webp" alt="Fiuggi" height="400px">
+                        <div class="carousel-caption">
+                            <a href="Fiuggi.html" class="btn btn-primary">Scopri Fiuggi</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="immagini/Paliano/paliano.jpg" alt="Paliano" height="400px">
+                        <div class="carousel-caption">
+                            <a href="Paliano.html" class="btn btn-primary">Scopri Paliano</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="immagini/Segni/Segni.webp" alt="Segni" height="400px">
+                        <div class="carousel-caption">
+                            <a href="Segni.html" class="btn btn-primary">Scopri Segni</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="immagini/Montecompatri/Monte_Compatri.jpg" alt="Montecompatri" height="400px">
+                        <div class="carousel-caption">
+                            <a href="Montecompatri.html" class="btn btn-primary">Scopri Montecompatri</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="immagini/Genazzano/genazzano.jpg" alt="Genazzano" height="400px">
+                        <div class="carousel-caption">
+                            <a href="Genazzano.html" class="btn btn-primary">Scopri Genazzano</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Chatbot -->
+    <main>
+        <button id="Bottone" onclick="toggleChat()">CHAT BOT</button>
+
+        <div class="chat-container" id="chatContainer" style="display: none;">
+            <img src="immagini/Chatbot/Telefono.png" alt="Telefono" class="background-image">
+            <div class="chat-content">
+                <div class="Full_Icone">
+                    <div id="cerchio1">
+                        <div id="cerchio2">
+                            <div id="nome">ChatBot</div>
+                            <img id="icona" src="immagini/Chatbot/Icona.png" alt="Icona">
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-box" id="chat-box"></div>
+                <div class="input-area">
+                    <input type="text" id="messaggi-input" placeholder="Digita la tua domanda..." disabled>
+                    <button onclick="sendMessage()" id="send-button" disabled>Invia</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <img src="immagini/tor_vergata.png" height="50" alt="Università Tor Vergata">
+                <p>© Corso di Turismo Digitale 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Animazione per le sezioni
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+            
+            setTimeout(() => {
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

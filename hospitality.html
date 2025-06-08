@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include solo una versione di Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_localita.css">
+    
+
+    <title>Viaggio sui passi di Gregorovius - Hospitality</title>
+
+</head>
+
+
+<body>
+    <!-- Barra di navigazione -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-map-marked-alt me-2"></i>Viaggio sui passi di Gregorovius</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-map-marker-alt me-1"></i> Località
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Genazzano.html">Genazzano</a></li>
+                            <li><a class="dropdown-item" href="Paliano.html">Paliano</a></li>
+                            <li><a class="dropdown-item" href="Fiuggi.html">Fiuggi</a></li>
+                            <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
+                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="itinerario.html"><i class="fas fa-route me-1"></i> Itinerario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="staff.html"><i class="fas fa-users me-1"></i> Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback.html"><i class="fas fa-comment me-1"></i> Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="hospitality.html"><i class="fas fa-hotel me-1"></i> Hospitality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="hero" style="background-image: url('immagini/vista.jpg');">
+        <h1><i>Hospitality</i></h1>
+    </div>
+
+    <!-- Contenuto Principale -->
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Hospitality Experience: Dove il viaggio incontra il comfort</h2>
+             <p class="lead text-center">
+                        Un invito a vivere l'ospitalità autentica tra storia, gusto e paesaggi incantati.
+            </p>
+        </section>
+
+        <!-- Sezioni Descrittive -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title text-center">Hospitality secondo Ferdinand Gregorovius</h2>
+                <p class="lead text-center">
+                Per Gregorovius, l’ospitalità non è un servizio da valutare, ma un’esperienza culturale da vivere: ogni sosta diventa un incontro, ogni alloggio una storia.
+                </p>
+
+                <div class="card my-4">
+                    <div class="card-body">
+                        <h4 class="text-primary" style="color: #2c3e50 !important;" >1. Ospitalità come incontro con l’anima del luogo</h4>
+                        <p>Dormire in una locanda o mangiare in un’osteria significava entrare in contatto con la vita autentica del posto. L’accoglienza era lo specchio dell’identità locale: semplice, concreta, spesso disadorna, ma ricca di umanità.</p>
+
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">2. Un viaggio lento, fatto di soste significative</h4>
+                        <p>Camminava per giorni interi, e ogni sosta era un momento di riflessione. L’ospitalità si inseriva naturalmente in questo ritmo lento: non era solo ristoro, ma occasione per osservare, annotare, capire.</p>
+
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">3. Più umanità che comfort</h4>
+                        <p>Gregorovius non cercava lusso, ma autenticità. Apprezzava l’ospitalità offerta con orgoglio e discrezione, anche nei contesti più umili.</p>
+
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">4. L’ospitalità come narrazione</h4>
+                        <p>Ogni locanda, ogni incontro con osti, contadini o viandanti, entrava nei suoi appunti di viaggio. L’ospitalità diventava memoria e racconto.</p>
+
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">5. Una geografia dell’accoglienza</h4>
+                        <p>L’accoglienza cambia da borgo a borgo: più calorosa nei paesi, più formale nelle città. Il viaggio si misura anche nella varietà dell’ospitalità ricevuta.</p>
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <div class="card-body">
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">L’ospitalità ideale secondo Gregorovius:</h4>
+                        <ul>
+                        <li><strong>Vera</strong>, anche se imperfetta</li>
+                        <li><strong>Essenziale</strong>, ma dignitosa</li>
+                        <li><strong>Silenziosa</strong>, mai invadente</li>
+                        <li><strong>Carica di storie</strong>, non di lusso</li>
+                        <li><strong>Radicata nel territorio</strong>, mai standardizzata</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <div class="card-body">
+                        <h4 class="text-primary" style="color: #2c3e50 !important;">In sintesi</h4>
+                        <p>Per Gregorovius, hospitality è una forma di incontro e di racconto. Ogni porta aperta è una pagina di viaggio: fatta di volti, odori, silenzi e dettagli che diventano letteratura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" id="localita-descrizioni">
+            <!-- Genazzano -->
+            <div class="card mb-4" id="genazzano">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-img-container">
+                            <img src="immagini/Genazzano/genazzano.jpg" class="img-fluid experience-img" alt="Genazzano">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Genazzano</h3>
+                            <p class="card-text">Un luogo unico, quasi uscito da una storia di fantasia, tanto da sembrare sospeso nel tempo. In un solo posto puoi ammirare edifici rinascimentali, medievali e ancora più antichi. Notevole è anche la presenza di edifici religiosi, come il Santuario della Madre del Buon Consiglio, tornato recentemente sotto i riflettori grazie alla visita del nuovo Papa. Oltre agli edifici storici potrai passare del tempo di qualità osservando il paesaggio molto caratteristico nei suoi dintorni o assaggiando piatti di cucina tradizionale nelle osterie del posto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paliano -->
+            <div class="card mb-4" id="paliano">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-img-container">
+                            <img src="immagini/Paliano/paliano.jpg" class="img-fluid experience-img" alt="Paliano">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Paliano</h3>
+                            <p class="card-text">Paliano è un affascinante borgo medievale situato nel cuore della Ciociaria, in provincia di Frosinone, a circa 60 km da Roma. Sorge su una collina e offre una splendida vista sulla campagna della Ciociaria. Il paese ha origini antiche e conserva un centro storico ricco di fascino, con vicoli stretti, chiese storiche e palazzi nobiliari. Paliano è circondato da aree naturali suggestive e ideali per passeggiate e attività all'aperto. Il paese è noto anche per le sue tradizioni popolari, come il Palio dell'Assunta, che si tiene ad agosto con sfilate in costume e competizioni tra i rioni.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fiuggi -->
+            <div class="card mb-4" id="fiuggi">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-img-container">
+                            <img src="immagini/Fiuggi/Fiuggi.webp" class="img-fluid experience-img" alt="Fiuggi">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Fiuggi</h3>
+                            <p class="card-text">Fiuggi è una città termale situata nel Lazio, in provincia di Frosinone. È famosa per le sue acque minerali, conosciute fin dall'antichità per le proprietà benefiche, in particolare per la cura dei calcoli renali. Immersa nei monti Ernici, Fiuggi è anche una meta di villeggiatura, con un centro storico medievale (Fiuggi Città) e una zona più moderna (Fiuggi Fonte), dove si trovano le terme e gli hotel. La città è circondata da boschi e paesaggi collinari, ideali per il relax e le passeggiate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Segni -->
+            <div class="card mb-4" id="segni">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-img-container">
+                            <img src="immagini/Segni/Segni.webp" class="img-fluid experience-img" alt="Segni">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Segni</h3>
+                            <p class="card-text">Segni è immersa nella natura dei Monti Lepini, tra boschi di querce e castagni, ed è un ottimo punto di partenza per escursioni e passeggiate. Il clima è mite in estate e fresco in inverno, con panorami che spaziano fino alla pianura pontina. La cultura e la tradizione sono molto importanti, ed è per questo che si tramandano numerose festività cittadine, tra le quali: la sagra del Marrone Segnino: ogni autunno, si celebra la castagna tipica locale, presidio Slow Food. Eventi religiosi e storici: tra cui rievocazioni medievali e la festa patronale di San Bruno.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Montecompatri -->
+            <div class="card mb-4" id="montecompatri">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div class="card-img-container">
+                            <img src="immagini/Montecompatri/Monte_Compatri.jpg" class="img-fluid experience-img" alt="Montecompatri">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Montecompatri</h3>
+                            <p class="card-text">Monte Compatri è un borgo dei Castelli Romani, situato su un colle di origine vulcanica a sud-est di Roma. Il centro storico, con le sue strade concentriche e le cantine scavate nel tufo, conserva un fascino autentico. La città si anima attorno a Palazzo Borghese (oggi Municipio) e alla chiesa di Santa Maria Assunta, con facciata di Carlo Rainaldi. Tra vicoli e piazzette spuntano fontane storiche come quella dell'Angelo, mentre nei dintorni si estendono boschi di castagno e percorsi geologici nel Parco Regionale dei Castelli Romani. Ogni stagione offre eventi culturali ed enogastronomici dedicati ai vini DOC e all'olio extravergine locale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mappa -->
+        <section id="map-container">
+            <h2 class="section-title">Mappa delle strutture</h2>
+            <div id="map"></div>
+        </section>
+    </div>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <img src="immagini/tor_vergata.png" height="50" alt="Università Tor Vergata">
+                <p>© Corso di Turismo Digitale 2025</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    
+<!-- Mappa Script -->
+    <script>
+        // Inizializzazione Mappa
+        const map = L.map('map').setView([41.800, 13.150], 10);
+
+        // Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+// Fix Dimensioni Mappa
+        setTimeout(() => map.invalidateSize(), 100);
+
+// Funzione Icone Personalizzate
+        const createIcon = (type) => L.divIcon({
+            className: 'custom-marker',
+            iconSize: [32, 32],
+            html: `<div class="marker-${type}"></div>`
+        });
+
+// Dati POI
+        var poiData = { 
+            "type": "FeatureCollection",
+            "features": [
+// Genazzano
+// attrazione
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97094, 41.83308] },
+                    "properties": {
+                        "name": "Santuario della Madonna del Buon Consiglio",
+                        "description": "Santuario famoso per la sua spiritualità e arte sacra.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97395, 41.83533] },
+                    "properties": {
+                        "name": "Castello Colonna",
+                        "description": "Imponente struttura medievale che domina il borgo.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97266, 41.82967] },
+                    "properties": {
+                        "name": "Porta Romana",
+                        "description": "Antica porta di accesso al borgo, simbolo del sistema difensivo.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.9715, 41.8280] },
+                    "properties": {
+                        "name": "Fontana del Vignola",
+                        "description": "Raffinata fontana rinascimentale nella piazza centrale.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97382, 41.82879] },
+                    "properties": {
+                        "name": "Ninfeo Bramante",
+                        "description": "Raffinata struttura rinascimentale situata nei pressi del Santuario della Madonna del Buon Consiglio.",
+                        "type": "attrazione"
+                    }
+                }
+// Ristoranti
+                ,{
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97241, 41.82873] },
+                    "properties": {
+                        "name": "La Vecchia Osteria",
+                        "description": "Un rifugio di sapori e tranquillità, perfetto per chi cerca una pausa rilassante in un’atmosfera autentica. La Vecchia Osteria accoglie i suoi ospiti con uno stile rustico e curato, fatto di arredi in legno, luci calde e un’ospitalità che sa di casa. È il posto ideale per lasciarsi alle spalle la frenesia quotidiana e godersi un pasto in totale relax, magari dopo una passeggiata tra le bellezze storiche di Genazzano. La cucina propone piatti semplici e genuini, ispirati alla tradizione locale, con un’attenzione particolare alla qualità degli ingredienti e alla stagionalità. Ogni portata è pensata per offrire un’esperienza di gusto autentica e appagante. Assolutamente da non perdere i dolci artigianali, vera punta di diamante del menu: preparati ogni giorno con passione e creatività, rappresentano la conclusione perfetta per un pranzo o una cena da ricordare.",
+                        "type": "ristorante"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.97328, 41.83602] },
+                    "properties": {
+                        "name": "Antica Osteria Terremoto",
+                        "description": "Se volete assaporare i veri gusti della tradizione romana, l’Osteria Terremoto è una tappa imperdibile. Gestita da oltre tre generazioni dalla stessa famiglia, questa osteria conserva intatto lo spirito autentico della cucina popolare, offrendo piatti semplici ma ricchi di sapore, preparati con ingredienti freschi e locali. L’ambiente è rustico e accogliente, con un’atmosfera calda che fa subito sentire a casa. Il personale, sempre gentile e sorridente, contribuisce a creare un’esperienza conviviale e genuina, come nelle vere osterie di una volta.Dalla pasta fatta in casa ai secondi tipici della tradizione, ogni piatto racconta una storia di passione e amore per la buona cucina. Un luogo dove il tempo sembra rallentare e dove si torna volentieri, per gusto e per affetto.",
+                        "type": "ristorante"
+                    }
+                },
+//alloggio                
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.96701, 41.81121] },
+                    "properties": {
+                        "name": "Aminta resort",
+                        "description": "Un elegante rifugio immerso nel verde, perfetto per chi cerca relax e raffinatezza. Aminta Resort offre camere confortevoli, una piscina panoramica e una cucina che unisce tradizione e creatività. Ideale per weekend romantici, eventi esclusivi o semplici momenti di benessere, il resort accoglie i suoi ospiti con un’atmosfera intima e curata nei dettagli. Un angolo di pace dove natura e comfort si incontrano.",
+                        "type": "alloggio"
+                    }
+                },                
+
+// Paliano
+// attrazione
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.05252, 41.81130] },
+                    "properties": {
+                        "name": "Palazzo Colonna",
+                        "description": "Storico palazzo situato nel centro di Paliano, accanto alla Chiesa di Sant'Andrea Apostolo.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.05550, 41.80564] },
+                    "properties": {
+                        "name": "Chiesa di Sant'Andrea Apostolo",
+                        "description": "Chiesa situata in Piazza Colonna, nel cuore di Paliano.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.04602, 41.77749] },
+                    "properties": {
+                        "name": "Mura Castellane e Porte Storiche",
+                        "description": "Antiche mura e porte storiche come Porta Romana, Porta Napoletana e Porta Furba.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.0160, 41.7675] },
+                    "properties": {
+                        "name": "Monumento Naturale 'Selva di Paliano e Mola di Piscoli'",
+                        "description": "Area naturale protetta che si estende su circa 413 ettari.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.08344, 41.77560] },
+                    "properties": {
+                        "name": "Santuario di Santa Maria di Pugliano",
+                        "description": "Santuario situato nella contrada omonima nelle campagne di Paliano.",
+                        "type": "attrazione"
+                    }
+                }
+// Ristoranti
+                ,{
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.09320, 41.78719] },
+                    "properties": {
+                        "name": "Locanda degli angeli",
+                        "description": "Immersa nella quiete della campagna ciociara, la Locanda degli Angeli è un ristorante a conduzione familiare dove tradizione e creatività si incontrano. Guidata da Silvana e dalle sue figlie, la locanda offre un’esperienza culinaria con piatti genuini ispirati alla cucina locale: gnocchi alla curcuma, fettuccine al pesto, maialino al forno e dolci fatti in casa. L’ambiente è curato e rilassante, con un ampio giardino ideale per pranzi e cene all’aperto. La locanda è accessibile a persone con disabilità e offre servizi come Wi-Fi e parcheggio gratuiti. Vanta ottime recensioni per la qualità del cibo e l’atmosfera familiare. Aperta dal giovedì alla domenica. Prenotazione consigliata.",
+                        "type": "ristorante"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02633, 41.79041] },
+                    "properties": {
+                        "name": "L'Antico Granaio",
+                        "description": "Ristorante e bed & breakfast a conduzione familiare, L’Antico Granaio offre agli ospiti un’esperienza culinaria autentica, proponendo piatti tipici della tradizione romana e ciociara, come fettuccine fatte a mano con funghi porcini e spezzatino, serviti in un ambiente accogliente e familiare. La struttura dispone anche di camere singole e matrimoniali dotate di climatizzatore, smart TV con Netflix e colazione fatta in casa. La struttura dispone di parcheggio gratuito, tavoli all’aperto e accessibilità per tutti. Vanta ottime recensioni per la qualità del cibo e l’ospitalità.",
+                        "type": "ristorante"
+                    }
+                },
+//alloggio                
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.04464, 41.78687] },
+                    "properties": {
+                        "name": "Donna Vittori - Borgo Agricolo",
+                        "description": "Immerso nel verde della campagna ciociara, Donna Vittori è un elegante agriturismo a pochi minuti dal centro di Paliano. Offre camere e appartamenti climatizzati, con vista panoramica, Wi-Fi gratuito e colazione con prodotti freschi. Perfetto per chi cerca relax, natura e autenticità, è ideale per famiglie, coppie e piccoli gruppi. È possibile partecipare a degustazioni di vini e prodotti locali, passeggiate nei sentieri circostanti e attività all’aperto. La struttura dispone di parcheggio, giardino, terrazza e bar, ed è vicina a Rainbow MagicLand e al Parco La Selva.",
+                        "type": "alloggio"
+                    }
+                },                
+// Fiuggi
+// attrazione
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.21251, 41.78870] },
+                    "properties": {
+                        "name": "Terme di Fiuggi",
+                        "description": "Centro termale famoso per le sue acque curative e percorsi benessere.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.22153, 41.79110] },
+                    "properties": {
+                        "name": "Fonte Bonifacio VIII",
+                        "description": "Storica fonte termale immersa nel verde.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.2175, 41.8020] },
+                    "properties": {
+                        "name": "Lago di Canterno",
+                        "description": "Lago naturale ideale per passeggiate e relax.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.22043, 41.80431] },
+                    "properties": {
+                        "name": "Collegiata di San Pietro Apostolo",
+                        "description": "La principale chiesa di Fiuggi, situata nel cuore del centro storico.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.21942, 41.79588] },
+                    "properties": {
+                        "name": "Palazzo Fiuggi",
+                        "description": "un'elegante struttura rinomata per la sua combinazione di storia, lusso e benessere.",
+                        "type": "attrazione"
+                    }
+                }
+// Ristoranti
+                ,{
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.21965, 41.79138] },
+                    "properties": {
+                        "name": "Ristorante Sapore",
+                        "description": "Situato a Vile Alessio Nazari 26, è un ristorante in cui qualità,tradizione e soprattutto sapore sono le parole chiavi. Difatti ogni piatto che servono è un’esplosione di sapori autentici e genuini, che riflettono la loro passione per la cucina e il rispetto per le tradizioni culinarie. Con Sapore, vieni immerso in un viaggio sensoriale che ti lascerà un ricordo indelebile di gusto e soddisfazione.",
+                        "type": "ristorante"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.22653, 41.77736] },
+                    "properties": {
+                        "name": "Trattoria da Gino",
+                        "description": "Situato da via Valle Molella 5 a Fiuggi, è una trattoria esistente dal 1966. Qui si possono assaggiare i tipici piatti ciociari, ma anche la cucina contemporanea. In questa trattoria potete accomodarvi nel calore delle sale interne oppure in giardino dove, in primavera e in estate, si può godere del piacere di mangiare all’aperto, lasciare liberi i bambini nell’area giochi, e avere l’orizzonte sulle montagne dell’Alta Ciociaria.",
+                        "type": "ristorante"
+                    }
+                },
+//alloggio                
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.21950, 41.79579] },
+                    "properties": {
+                        "name": "Hotel Palazzo Fiuggi",
+                        "description": "Questo hotel si trova a via dei Villini 34, è un lussuoso wellness medical retreat situato a Fiuggi, nel Lazio, a circa un’ora da Roma. Originariamente costruito nel 1913 come il “più elegante e moderno hotel d’Europa”, è stato recentemente ristrutturato per diventare uno dei centri benessere più esclusivi al mondo. Il palazzo conserva il suo fascino storico, con affreschi del 1913, vetrate Liberty, pavimenti in marmo di Carrara e lampadari di Murano.La spa si estende su 6.000 m² e offre una vasta gamma di trattamenti, tra cui bagni romani, talassoterapia, saune, hammam e una piscina olimpionica esterna.Gli ospiti possono godere di attività come tennis, padel, yoga, meditazione e passeggiate nel parco privato di 9 ettari. Palazzo Fiuggi ha ricevuto il premio “World’s Best New Wellness Retreat 2021” dai World Spa Awards, consolidando la sua posizione come destinazione di riferimento per il benessere e la salute .",
+                        "type": "alloggio"
+                    }
+                },                
+// Segni
+// attrazione
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.01634, 41.69873] },
+                    "properties": {
+                        "name": "Mura Poligonali",
+                        "description": "Antiche mura di epoca romana.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02329, 41.69328] },
+                    "properties": {
+                        "name": "Cattedrale di Santa Maria Assunta",
+                        "description": "Chiesa principale con elementi medievali.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02358, 41.69311] },
+                    "properties": {
+                        "name": "Museo Archeologico di Segni",
+                        "description": "Esposizione di reperti storici locali.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02101, 41.69353] },
+                    "properties": {
+                        "name": "Porta Saracena",
+                        "description": "Storica porta d'accesso al borgo.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02456, 41.69715] },
+                    "properties": {
+                        "name": "Chiesa di San Pietro",
+                        "description": "Chiesa con affreschi medievali.",
+                        "type": "attrazione"
+                    }
+                }
+// Ristoranti
+                ,{
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02394, 41.68370] },
+                    "properties": {
+                        "name": "Scroccarocco",
+                        "description": "Il Ristorante Scroccarocco è un mix di professionalità e competenze messe al servizio dei suoi clienti. Ottimo pesce fresco e braceria, ma soprattutto accoglienza e ospitalità in una delle più belle e storiche località dei Monti Lepini: Segni. Tra i ristoranti più rinomati della provincia sud di Roma tra i Castelli Romani e la Ciociaria. Ampie sale per banchetti e per le vostre cerimonie, una sala inferiore particolarmente indicata per feste private, ma anche un ampio spazio all'aperto con vista panoramica. ll ristorante Scroccarocco è ben servito da un ampio parcheggio.",
+                        "type": "ristorante"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.02381, 41.69182] },
+                    "properties": {
+                        "name": "La Loggetta del Tartufo",
+                        "description": "Locale caratteristico, situato nel centro storico del paese difronte a palazzo Cremona, conosciuto per la sua Loggetta medioevale. In un ambiente accogliente e familiare potrete gustare piatti tipici della cucina locale ed anche prelibatezze a base di tartufo nostrano, il tutto accompagnato da vini biologici dell'azienda vinicola Marco Carpineti.",
+                        "type": "ristorante"
+                    }
+                },
+//alloggio                
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [13.01870, 41.68700] },
+                    "properties": {
+                        "name": "La Pace",
+                        "description": "L’Albergo Ristorante La Pace è una storica struttura a 3 stelle situata nel centro di Segni, in provincia di Roma. Fondato nel 1946, è noto per la sua lunga tradizione di ospitalità e per l’eccellenza della cucina locale. L’hotel offre camere spaziose e luminose, dotate di bagno privato, TV, aria condizionata e connessione Wi-Fi gratuita. Alcune suite includono sauna o vasca idromassaggio.",
+                        "type": "alloggio"
+                    }
+                },
+
+// Montecompatri
+// attrazione  
+                {   
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73278, 41.80619] },
+                    "properties": {
+                        "name": "Convento di San Silvestro",
+                        "description": "Convento con vista panoramica.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73330, 41.80544] },
+                    "properties": {
+                        "name": "Santuario della Madonna del Castagno",
+                        "description": "Santuario immerso nella natura.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73709, 41.80837] },
+                    "properties": {
+                        "name": "Palazzo Borghese",
+                        "description": "Palazzo storico nel borgo.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73787, 41.80959] },
+                    "properties": {
+                        "name": "Cattedrale di Santa Maria Assunta",
+                        "description": "Chiesa principale del paese.",
+                        "type": "attrazione"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73736, 41.80643] },
+                    "properties": {
+                        "name": "Parco Calahorra",
+                        "description": "Parco pubblico con aree verdi.",
+                        "type": "attrazione"
+                    }
+                }
+// Ristoranti
+                ,{
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73420, 41.82326] },
+                    "properties": {
+                        "name": "Il Casale delle Streghe",
+                        "description": "Il Casale delle Streghe è un ristorante ricavato in un suggestivo casale seicentesco immerso nel verde di Monte Compatri. In estate si cena all’aperto tra ulivi e pergolati, mentre d’inverno la sala con volte in tufo e camino crea un’atmosfera calda e “misteriosa”. Il menù reinterpreta i classici laziali (carbonara, amatriciana, tortelli fatti in casa) affiancati a salumi e formaggi artigianali, con opzioni vegetariane, vegane e senza glutine. Dispone di Wi Fi, parcheggio privato, area bimbi ed eventi a tema; è aperto giov sab 19:30-23:30 e dom 12:30-15:30 (lun mer chiuso).",
+                        "type": "ristorante"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.72687, 41.82505] },
+                    "properties": {
+                        "name": "Agriturismo Pallotta",
+                        "description": "Immerso tra oliveti e vigneti dei Colli Albani, l’Agriturismo Pallotta offre una terrazza panoramica con vista su Roma e Monte Porzio. La cucina stagionale fa leva sui prodotti di propria produzione - olio EVO, Frascati Superiore DOCG, verdure e ortaggi biologico - con specialità come il flan di broccoli romani, risotti e paste fatte in casa e dolci tradizionali. Lo spazio interno rustico, con volte in pietra, si affianca a vaste aree all’aperto, perfette per cene romantiche, feste private e cerimonie.",
+                        "type": "ristorante"
+                    }
+                },
+//alloggio                
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.73569, 41.82132] },
+                    "properties": {
+                        "name": "Villa Mina by Interhome",
+                        "description": "Villa Mina è una spaziosa villa indipendente immersa nel verde di Monte Compatri, a soli 35 km dal centro di Roma e a pochi minuti da Frascati e dal Parco dei Castelli Romani. Pensata per ospitare fino a 10 persone, dispone di cinque ampie camere da letto e quattro bagni eleganti, oltre a una cucina completamente attrezzata con forno, lavastoviglie e microonde. Il soggiorno è caratterizzato da un suggestivo camino e aria condizionata in tutti gli ambienti, mentre il Wi Fi, la TV satellitare e la lavatrice garantiscono ogni comfort moderno. All’esterno, la villa si affaccia su un parco recintato di 10 000 m², dove una piscina privata (stagionale), un pergolato ombreggiato, un’area barbecue e tavoli da pranzo all’aperto invitano al relax e alle conviviali cene sotto le stelle. Il parcheggio privato, l’accesso diretto alle strade principali e la vicinanza (4 min in auto) alla stazione di Colle Mattia rendono Villa Mina un punto di partenza ideale per esplorare le bellezze storiche e paesaggistiche dei Castelli Romani. Check in dalle 16:00 e check out entro le 10:00.",
+                        "type": "alloggio"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": { "type": "Point", "coordinates": [12.72469, 41.83676] },
+                    "properties": {
+                        "name": "Casale Mattia",
+                        "description": "Casale Mattia è un’azienda vitivinicola a conduzione familiare, attiva dal 1960 sulle colline vulcaniche di Colle Mattia a Monte Compatri. Giunta alla terza generazione, pratica una coltivazione biologica certificata ICEA dal 1995, puntando su vitigni autoctoni come Malvasia di Candia, Trebbiano e Bombino. La cantina produce una gamma completa di etichette: dal Frascati DOC e Superiore DOCG al dolce Cannellino di Frascati, dagli spumanti ai rossi di carattere (Cesanese, Merlot, Shiraz) fino agli IGT Lazio Misa Bianco e Roma Rosso/Bianco. Grazie a visite guidate tra i filari e tour in cantina, accompagnati da degustazioni professionali, i visitatori scoprono i segreti della vinificazione tradizionale e possono acquistare i vini direttamente nel punto vendita di Frascati in via XX Settembre 48.",
+                        "type": "alloggio"
+                    }
+                }
+            ] };
+
+
+        let pointsLayer;
+        let currentLocation = 'all';
+        
+// Semplificazione custom icon
+        function createCustomIcon(feature) {
+            const rating = feature.properties.rating;
+            let iconUrl, iconType;
+            
+            switch (feature.properties.type) {
+                case 'alloggio':
+                iconType = 'house';
+            break;
+            case 'ristorante':
+                iconType = 'restaurant';
+            break;
+            case 'attrazione': // italiano
+            case 'attraction': // inglese
+                iconType = 'attraction';
+                break;
+            default:
+                iconType = 'attraction';
+            }
+
+            
+            return L.divIcon({
+                className: 'custom-icon',
+                html: `<div style="position: relative; width: 25px; height: 41px;">
+                       <svg width="25" height="41" style="position: absolute; top: 0; left: 0;">
+                         ${iconType === 'house' ? 
+                          `<path d="M12.5 0 L25 12.5 L25 41 L0 41 L0 12.5 Z" fill="#3388ff" />
+                           <path d="M4 20 L4 37 L21 37 L21 20 L12.5 11.5 Z" fill="white" />
+                           <path d="M10 30 L15 30 L15 37 L10 37 Z" fill="#3388ff" />` : 
+                          iconType === 'restaurant' ?
+                          `<path d="M12.5 0 L25 35 L12.5 41 L0 35 Z" fill="#8e44ad" />
+                           <path d="M7 10 L9 10 L9 20 L12 20 L12 10 L14 10 L14 20 L17 20 L17 10 L19 10 L19 25 L17 25 L17 30 L8 30 L8 25 L7 25 Z" fill="white" stroke="white" stroke-width="0.5" />` :
+                          `<path d="M12.5 0 L25 30 L12.5 41 L0 30 Z" fill="#ff3333" />
+                           <text x="12.5" y="24" text-anchor="middle" fill="white" font-weight="bold" font-size="18">!</text>`}
+                       </svg>
+                       <div style="position: absolute; bottom: -3px; width: 100%; text-align: center; color: white; font-weight: bold; font-size: 8px;">
+                         ${rating ? '★'.repeat(rating) : ''}
+                       </div>
+                       </div>`,
+                iconSize: [25, 41],
+                iconAnchor: [12.5, 41],
+                popupAnchor: [0, -41]
+            });
+        }
+
+// Aggiunta POI con controllo degli errori
+        try {
+            L.geoJSON(poiData, {
+                pointToLayer: (feature, latlng) => {
+                    return L.marker(latlng, { 
+                        icon: createCustomIcon(feature) 
+                    });
+                },
+                onEachFeature: (feature, layer) => {
+                    layer.bindPopup(`
+                        <b>${feature.properties.name}</b><br>
+                        ${feature.properties.description}
+                    `);
+                }
+            }).addTo(map);
+        } catch (e) {
+            console.error("Errore nel caricamento dei POI:", e);
+        }
+        // Aggiunta POI
+        L.geoJSON(poiData, {
+            pointToLayer: (feature, latlng) => {
+                return L.marker(latlng, {
+                    icon: createIcon(feature.properties.type)
+                });
+            },
+            onEachFeature: (feature, layer) => {
+                layer.bindPopup(`
+                    <b>${feature.properties.name}</b>
+                    <p>${feature.properties.description}</p>
+                `);
+            }
+        }).addTo(map);
+
+        // Percorso nel Comune di Genazzano (colore viola)
+        var routeGenazzano = [
+            [41.83308, 12.97094],
+            [41.83533, 12.97395],
+            [41.82967, 12.97266],
+            [41.8280, 12.9715],
+            [41.82879, 12.97382]
+        ];
+        L.polyline(routeGenazzano, { color: 'purple' }).bindPopup("Percorso nel Comune di Genazzano").addTo(map);
+
+// Percorso aggiornato per il Comune di Paliano (colore blu)
+        var routePaliano = [
+            [41.81130, 13.05252],
+            [41.80564, 13.05550],
+            [41.77749, 13.04602],
+            [41.7675, 13.0160],
+            [41.77560, 13.08344]
+        ];
+        L.polyline(routePaliano, { color: 'blue' }).bindPopup("Percorso nel Comune di Paliano").addTo(map);
+
+// Percorso nel Comune di Fiuggi (colore rosso)
+        var routeFiuggi = [
+            [41.78870, 13.21251],
+            [41.79110, 13.22153],
+            [41.8020, 13.2175],
+            [41.80431, 13.22043],
+            [41.79588, 13.21942]
+        ];
+        L.polyline(routeFiuggi, { color: 'red' }).bindPopup("Percorso nel Comune di Fiuggi").addTo(map);
+
+// Percorso nel Comune di Segni (colore verde)
+        var routeSegni = [
+            [41.69873, 13.01634],
+            [41.69328, 13.02329],
+            [41.69311, 13.02358],
+            [41.69353, 13.02101],
+            [41.69715, 13.02456]
+        ];
+        L.polyline(routeSegni, { color: 'green' }).bindPopup("Percorso nel Comune di Segni").addTo(map);
+
+// Percorso nel Comune di Montecompatri (colore arancione)
+        var routeMontecompatri = [
+            [41.80619, 12.73278],
+            [41.80544, 12.73330],
+            [41.80837, 12.73709],
+            [41.80959, 12.73787],
+            [41.80643, 12.73736]
+        ];
+        L.polyline(routeMontecompatri, { color: 'orange' }).bindPopup("Percorso nel Comune di Montecompatri").addTo(map);
+
+// Percorso tra i comuni nell'ordine richiesto
+        var routeComuni = [
+            [41.83308, 12.97094], // Genazzano
+            [41.81130, 13.05252], // Paliano
+            [41.78870, 13.21251], // Fiuggi
+            [41.69873, 13.01634], // Segni
+            [41.80619, 12.73278] // Montecompatri
+        ];
+        L.polyline(routeComuni, { color: 'yellow' }).bindPopup("Percorso tra i Comuni").addTo(map);
+
+    </script>
+</body>
+</html>

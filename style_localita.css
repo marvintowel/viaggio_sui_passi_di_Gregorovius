@@ -1,0 +1,326 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Stili Generali */
+body {
+    font-family: 'Segoe UI', Arial, Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#map-container {
+    flex: 1;
+    width: 100%; 
+    margin: 20px auto;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 800px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+.dropdown-menu {
+    background-color: var(--primary-color); /* Added from style_getyourguide.css */
+}
+
+.dropdown-item {
+    color: white !important; /* Added from style_getyourguide.css */
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-color); /* Added from style_getyourguide.css */
+}
+
+/* Hero Section */
+.hero { /* Changed from .city-hero to .hero */
+    position: relative;
+    height: 700px; /* Altezza fissa */
+    width: 100%; /* Larghezza automatica */
+    background-size: cover; /* Copertura completa */
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Kept for centered text within the hero */
+    text-align: center; /* Kept for centered text within the hero */
+    border-radius: var(--border-radius); /* Kept for visual consistency */
+    overflow: hidden; /* Kept for visual consistency */
+    margin-bottom: 30px; /* Changed from 40px to 30px */
+}
+
+.hero::before { /* Changed from .city-hero::before to .hero::before */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Overlay scuro - changed from 0.5 to 0.6 */
+}
+
+.hero h1 { /* Changed from .city-hero h1 to .hero h1 */
+    color: white;
+    font-size: 3.5rem;
+    z-index: 1; /* Assicura che il testo sia sopra l'overlay */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styling - Adapted from style_getyourguide.css */
+.section {
+    background-color: white; /* Added/Updated */
+    border-radius: 10px; /* Added/Updated */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Added/Updated */
+    padding: 30px; /* Changed from 60px 0 to 30px */
+    margin-bottom: 30px; /* Changed from 40px to 30px */
+    transition: transform 0.3s ease; /* Added */
+}
+
+.section:hover { /* Added */
+    transform: translateY(-5px);
+}
+
+/* Removed: .section:nth-of-type(odd) { background-color: var(--light-color); } */
+
+/* Section Title - Adapted from style_getyourguide.css's .section-title */
+.section-title { /* Changed from .section h2 to .section-title */
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color); /* Changed from ::after pseudo-element */
+    padding-bottom: 10px; /* Added */
+    margin-bottom: 20px; /* Changed from 40px */
+    font-size: 2.5rem; /* Kept from previous h2 */
+    font-weight: 700; /* Kept from previous h2 */
+}
+
+/* Removed: .section h2::after block */
+
+/* Card Styling - Harmonized with style_getyourguide.css */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow); /* Kept consistent */
+    transition: var(--transition); /* Kept consistent */
+    overflow: hidden;
+    height: 100%; /* Ensure cards in a row have similar height */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Kept consistent with getyourguide .section:hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Kept consistent */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Added from experience-img */
+    transition: transform 0.3s ease; /* Added from experience-img */
+}
+
+.card-img-top:hover { /* Added from experience-img:hover */
+    transform: scale(1.02);
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card-text {
+    color: #555;
+    flex-grow: 1; /* Allows text to take available space */
+}
+
+/* Buttons - Adapted from style_getyourguide.css's .btn-primary */
+.btn-primary {
+    background-color: var(--secondary-color); /* Changed */
+    border-color: var(--secondary-color); /* Changed */
+    padding: 10px 25px; /* Changed */
+    border-radius: 30px; /* Changed */
+    font-weight: bold; /* Added */
+    transition: all 0.3s ease; /* Changed */
+    margin-top: 15px; /* Kept */
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color); /* Changed */
+    border-color: var(--primary-color); /* Changed */
+    transform: translateY(-3px); /* Added */
+}
+
+/* Accordion - Keeping existing styles which are consistent */
+.accordion-item {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.accordion-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.accordion-button {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+    border-radius: var(--border-radius) !important; /* Important to override default Bootstrap */
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.card-body.text-success {
+    color: var(--dark-color) !important;
+    padding: 20px;
+}
+
+/* Alert - Keeping existing styles which are consistent */
+.alert-info {
+    background-color: #e8f4fd;
+    border-color: #b8e2fb;
+    color: #000; /* Testo nero fisso */
+    border-radius: var(--border-radius);
+}
+
+/* Footer - Harmonized with style_getyourguide.css */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer img {
+    filter: brightness(0) invert(1);
+    margin-bottom: 20px;
+}
+
+.footer .text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Media Queries - Harmonized */
+@media (max-width: 992px) {
+    .hero h1 { /* Changed from .city-hero h1 */
+        font-size: 2.8rem;
+    }
+
+    .section {
+        padding: 30px 0; /* Changed from 40px 0 */
+    }
+
+    .section-title { /* Changed from .section h2 */
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero { /* Changed from .city-hero */
+        height: 300px;
+    }
+
+    .hero h1 { /* Changed from .city-hero h1 */
+        font-size: 2.2rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+
+    @media (max-width: 768px) {
+        #map-container {
+            width: 100%; 
+            margin: 10px auto;
+        }
+        #map {
+            height: 500px; 
+        }
+        .lead h6 {
+            font-size: 14px;
+        }
+    }

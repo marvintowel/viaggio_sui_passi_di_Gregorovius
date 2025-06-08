@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fiuggi</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-nl8g1fzkevHdGVE5z5nXpSTNkoeZngG6NVRdN0ETK8WAZJf2v/Vdumrx0Y/1TJWb" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-P+srVxoeHTbC6DfMQJ+QLK8zuQoQlKTc58JYnDMWZS8T+ujxMh92ePQJSktWqF8K" crossorigin=""></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style_localita.css">
+
+    <title>Viaggio sui passi di Gregorovius - Fiuggi</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-map-marked-alt me-2"></i>Viaggio sui passi di Gregorovius</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-map-marker-alt me-1"></i> Località
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Genazzano.html">Genazzano</a></li>
+                            <li><a class="dropdown-item" href="Paliano.html">Paliano</a></li>
+                            <li><a class="dropdown-item active" href="Fiuggi.html">Fiuggi</a></li>
+                            <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
+                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="itinerario.html"><i class="fas fa-route me-1"></i> Itinerario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="staff.html"><i class="fas fa-users me-1"></i> Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback.html"><i class="fas fa-comment me-1"></i> Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hospitality.html"><i class="fas fa-hotel me-1"></i> Hospitality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!--nome e info città-->    
+    <div class="hero" style="background-image: url('immagini/Fiuggi/Fiuggi.webp');">
+        <h1>Benvenuti a Fiuggi</h1>
+    </div>
+    <div class="container">
+        <section class="section" id="intro">
+            <h2 class="section-title">Scopri Fiuggi</h2>
+            <p class="lead text-center">
+                Fiuggi è una famosa località termale situata nel Lazio, nota per le sue acque curative e il suo centro storico.
+                Con una ricca storia che risale all'epoca romana, Fiuggi offre un mix unico di benessere, cultura e natura.
+            </p>
+        </section>
+
+<!-- Punti di interesse -->
+        <section class="section" id="attrazioni">
+            <h2 class="section-title">Attrazioni Principali</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/fonte_bonifacio.jpeg" class="card-img-top" alt="Fonte Bonifacio VIII">
+                        <div class="card-body">
+                            <h5 class="card-title">Fonte Bonifacio VIII</h5>
+                            <p class="card-text">Una storica fonte termale famosa per le sue acque curative, utilizzata fin dal Medioevo.</p>                            
+                            <a href="https://fiuggiturismo.com/contenuti/190289/fonte-bonifacio-viii" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/lago_di_canterno.jpg" class="card-img-top" alt="Lago di Canterno">
+                        <div class="card-body">
+                            <h5 class="card-title">Lago di Canterno</h5>
+                            <p class="card-text">Un lago naturale ideale per passeggiate e relax immersi nella natura incontaminata.</p>
+                            <a href="https://it.wikipedia.org/wiki/Lago_di_Canterno" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/collegiata.jpeg" class="card-img-top" alt="Collegiata di San Pietro Apostolo">
+                        <div class="card-body">
+                            <h5 class="card-title">Collegiata di San Pietro Apostolo</h5>
+                            <p class="card-text">Una chiesa del XVII secolo situata nel cuore di Fiuggi Vecchia, con interni barocchi.</p>
+                            <a href="https://it.wikipedia.org/wiki/Chiesa_di_San_Pietro_Apostolo_(Fiuggi)" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- info città-->
+        <section class="section" id="comune-info">
+            <h2 class="section-title">Informazioni Utili sul Comune</h2>
+            <div class="accordion" id="accordionComune">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneOne" aria-expanded="true" aria-controls="collapseComuneOne">
+                            Informazioni Generali
+                        </button>
+                    </h2>
+                    <div id="collapseComuneOne" class="accordion-collapse collapse show" aria-labelledby="headingComuneOne"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Coordinate: 41°48'N 13°13'E<br>
+                                Regione: Lazio<br>
+                                Provincia: Frosinone<br>
+                                <hr>
+                                Area comunale: 32,98 km²<br>
+                                Popolazione: 10.182 abitanti<br>
+                                Patrono: San Biagio Vescovo e Martire<br>
+                                Sito: <a href="https://comune.fiuggi.fr.it/">www.comune.fiuggi.fr.it</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneTwo" aria-expanded="false" aria-controls="collapseComuneTwo">
+                            Meteo
+                        </button>
+                    </h2>
+                    <div id="collapseComuneTwo" class="accordion-collapse collapse" aria-labelledby="headingComuneTwo"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <div class="col-lg-5">
+                                <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/2802/ffffff/fc9b2a/5e5e5e/ffffff/it" width=187 height=268 frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneThree" aria-expanded="false" aria-controls="collapseComuneThree">
+                            Numeri Utili
+                        </button>
+                    </h2>
+                    <div id="collapseComuneThree" class="accordion-collapse collapse" aria-labelledby="headingComuneThree"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Per emergenze o necessità urgenti:
+                            </p>
+                            <ul>
+                                <li>Carabinieri: 112</li>
+                                <li>Pronto Soccorso: 118</li>
+                                <li>Polizia Locale: +39 0775 5151</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Ristoranti -->
+        <section class="section" id="ristoranti">
+            <h2 class="section-title">Ristoranti e Cucina Locale</h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/ristorante1.jpg" class="card-img-top" alt="Ristorante Sapore">
+                        <div class="card-body">
+                            <h5 class="card-title">Ristorante Sapore</h5>
+                            <p class="card-text">
+                                Viale Alessio Nazari, 26<br>
+                                Aperto tutti i giorni<br>
+                                Cucina italiana e mediterranea
+                            </p>
+                            <a href="https://www.tripadvisor.it/Restaurant_Review-g194762-d25438999-Reviews-Sapore-Fiuggi_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Vedi Menù</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Fiuggi/ristorante2.jpg" class="card-img-top" alt="Trattoria da Gino">
+                        <div class="card-body">
+                            <h5 class="card-title">Trattoria da Gino</h5>
+                            <p class="card-text">
+                                Via Valle Molella 5<br>
+                                Aperto tutti i giorni<br>
+                                Specialità locali e prodotti tipici
+                            </p>
+                            <a href="https://www.tripadvisor.it/Restaurant_Review-g194762-d2278686-Reviews-Trattoria_Da_Gino-Fiuggi_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Prenota tavolo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Hotel e benessere -->  
+        <section class="section" id="hotel">
+            <h2 class="section-title">Dove Alloggiare</h2>
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="immagini/Fiuggi/hotel1.jpeg" class="card-img-top" alt="Palazzo Fiuggi">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Palazzo Fiuggi</h5>
+                                    <p class="card-text">Esclusivo medical spa resort situato in un parco secolare di 8 ettari, che combina lusso, scienza e natura.</p>
+                                    <a href="https://www.tripadvisor.it/Hotel_Review-g194762-d233363-Reviews-Palazzo_Fiuggi-Fiuggi_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Prenota ora</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Mappa e percorso -->
+        <section class="section" id="mappa">
+            <h2 class="section-title">Mappa di Fiuggi</h2>
+            <div id="mapid" style="height: 400px; border-radius: 10px; box-shadow: var(--box-shadow);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23795.777251018644!2d13.20083942641831!3d41.79658810447561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ff59c455d4875%3A0x5e99eff23fc1993c!2s03014%20Fiuggi%20FR!5e0!3m2!1sit!2sit!4v1747053567310!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section class="section" id="percorso">
+            <h2 class="section-title">Percorso consigliato</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d47604.64960615214!2d13.196957749473077!3d41.778950447755456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e2!4m5!1s0x132ff5d9ffcb59a7%3A0x116b90eaa00deb9b!2sParcheggio%2C%20Unnamed%20Road%2003014%2C%2003014%20Fiuggi%20FR!3m2!1d41.794878!2d13.2209794!4m5!1s0x132ff59fe3abf0d5%3A0xd522df19d0cf98d3!2sChiesa%20di%20San%20Pietro%20Apostolo%2C%20Via%20Vittorio%20Emanuele%2C%2003014%20Fiuggi%20FR!3m2!1d41.804167!2d13.2204521!4m5!1s0x132ff5f02a92f575%3A0xc62a78ec3acecf6a!2sPalazzo%20Fiuggi%2C%20Via%20dei%20Villini%2C%2034%2C%2003014%20Fiuggi%20FR!3m2!1d41.795738199999995!2d13.2194871!4m5!1s0x132ff57deaf77437%3A0xf01b4adeeadb6cc9!2sTerme%20di%20Fiuggi%2C%20Via%20Anticolana%2C%2078%2C%2003014%20Fiuggi%20FR!3m2!1d41.7884385!2d13.2125045!4m5!1s0x132ff57856b7be01%3A0x7be7c80944dff91c!2sFonte%20Bonifacio%20VIII%2C%20V.le%20Fonte%20Anticolana%2C%201%2C%2003014%20Fiuggi%20FR!3m2!1d41.7910113!2d13.2214722!4m5!1s0x13255f3c4156d731%3A0xd4e84894629f17ce!2sLago%20di%20Canterno%2C%20Provincia%20di%20Frosinone!3m2!1d41.7536206!2d13.2504767!5e0!3m2!1sit!2sit!4v1747648228743!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="container text-center">
+                <i>
+                    Questo è il percorso che consigliamo per visitare Fiuggi. Il tour parte dal parcheggio principale, prosegue verso la Chiesa di San Pietro Apostolo, attraversa il centro storico, passa per il Palazzo Fiuggi e le Terme di Fiuggi, visita la Fonte Bonifacio VIII e si conclude al Lago di Canterno. Ideale per scoprire le principali attrazioni della città in una giornata.
+                </i>
+                <hr>
+            </div>
+        </section>
+
+<!-- Come arrivare -->
+        <section class="section" id="arrivare">
+            <h2 class="section-title">Come Arrivare</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            In Auto
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Da Roma, prendere l'autostrada A1 in direzione Napoli e uscire a Anagni-Fiuggi Terme. 
+                                Seguire le indicazioni per Fiuggi lungo la Strada Statale 155. Il viaggio dura circa 1 ora.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            In Treno
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                La stazione ferroviaria più vicina è Anagni-Fiuggi Terme, sulla linea Roma-Cassino. 
+                                Da lì, è possibile prendere un autobus Cotral o un taxi per raggiungere Fiuggi (circa 20 minuti di viaggio).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            In Autobus
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Fiuggi è ben collegata a Roma tramite i servizi Cotral. 
+                                Dalla Stazione Termini, gli autobus partono regolarmente e impiegano circa 1 ora e 18 minuti per arrivare a Fiuggi, 
+                                con un costo tra 4 e 6 euro. In alternativa, dalla Stazione Anagnina partono corse dirette quotidiane verso Fiuggi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+    </div>
+
+    <br><br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Animazione per le sezioni
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+            
+            setTimeout(() => {
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }, 100);
+
+            // Inizializzazione della mappa
+            var map = L.map('mapid').setView([41.7966, 13.2209], 13); // Coordinate di Fiuggi
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Aggiungi marcatori per i punti di interesse
+            L.marker([41.7910, 13.2215]).addTo(map)
+                .bindPopup('Fonte Bonifacio VIII')
+                .openPopup();
+                
+            L.marker([41.8042, 13.2205]).addTo(map)
+                .bindPopup('Collegiata di San Pietro Apostolo');
+                
+            L.marker([41.7957, 13.2195]).addTo(map)
+                .bindPopup('Palazzo Fiuggi');
+                
+            L.marker([41.7536, 13.2505]).addTo(map)
+                .bindPopup('Lago di Canterno');
+        });
+    </script>
+
+<!-- barra finale -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <img src="immagini/tor_vergata.png" height="50" alt="Università Tor Vergata">
+                <p>© Corso di Turismo Digitale 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

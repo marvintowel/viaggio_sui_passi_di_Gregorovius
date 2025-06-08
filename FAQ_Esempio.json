@@ -1,0 +1,35 @@
+[
+    {
+        "categoria": "personali",
+        "domanda": "ciao", 
+        "risposta": "Ciao! Come posso aiutarti?"
+    },
+    {
+        "categoria": "personali",
+        "domanda": "come ti chiami?", 
+        "risposta": "Mi chiamo ChatBot, sono qui per aiutarti!"
+    },
+    {
+        "categoria": "luoghi",
+        "domanda": "dove si trova frascati?",
+        "risposta": "Frascati è un comune italiano di 22.890 abitanti nella città metropolitana di Roma Capitale, nel Lazio, nell'area dei Castelli Romani."
+    },
+    {
+        "categoria": "percorsi",
+        "domanda": "come raggiungo frascati?",
+        "risposta": " frascati si trova qui: https://maps.app.goo.gl/KqtL9pvcL2zNxrph6"
+    },
+    {
+        "categoria": "attrazioni",
+        "domanda": "cosa visito a frascati?",
+        "risposta": "puoi visitare il centro storico di frascati, la cattedrale di SanPietro e così via"
+    },
+    {
+        "categoria": "personali",
+        "domanda": "grazie",
+        "risposta": "Prego! 😊"
+    }
+]
+
+
+

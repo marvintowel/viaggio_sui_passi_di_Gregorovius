@@ -1,0 +1,204 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.central2 {
+    position: static;
+    padding-top: 3.5%;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    max-width: 500px;
+}
+
+.navbar {
+    background-color: white;
+    opacity: 0.7;
+}
+
+.loading {
+    opacity: 0;
+    margin-left: 46%;
+    animation: load-in .5s 2.7s forwards ease-in;
+}
+
+.display-1 {
+    opacity: 0;
+    text-shadow: 3px 6px 4px;
+    animation: load-in .5s 1s forwards ease-in;
+}
+
+.display-2 {
+    opacity: 0;
+    text-shadow: 3px 6px 4px;
+    animation: load-in .5s 1s forwards ease-in;
+}
+
+.central3 {
+    opacity: 0;
+    animation: load-in .5s 2s forwards ease-in;
+    -webkit-animation: load-in .5s 2s forwards ease-in;
+}
+
+.shadow-lg {
+    opacity: 0;
+    animation: load-in .5s 2s forwards ease-in;
+}
+
+.img-fluid {
+    width: 40%;
+    height: 40%;
+    margin-left: 0%;
+}
+
+.transparentImg {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 100px black;
+    animation: fade-in .5s 1s forwards ease-in;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+#cardItinerary {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+}
+
+.quadri {
+    text-align: center;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-img-top:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.navbar{
+    z-index: 1;
+}
+
+.card-img-top {
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -ms-transition: all .8s;
+    -o-transition: all .8s;
+}
+
+.feedback {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	margin-top: -200px;
+	margin-bottom: -430px;
+}
+
+.feedback img {
+	margin-bottom: 20px;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.feedback p {
+	margin: 0;
+	text-align: center;
+}
+
+.rating {
+	color: #FFD700; /* define a cor das estrelas */
+	font-size: 12px; /* define o tamanho das estrelas */
+	margin-bottom: 20px;
+}
+
+.rating i {
+	margin-right: 3px; /* define o espaçamento entre as estrelas */
+}
+
+.feedback-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  flex-direction: row-reverse; /* adicione esta linha */
+  margin-top: 0; /* remove o espaçamento superior */
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  float: left;
+  color: #ccc;
+}
+
+.rating label:hover,
+.rating input:checked ~ label {
+  color: #FFD700;
+}
+
+
+.rating:hover input:checked ~ label {
+  color: #ccc;
+}
+
+.legend-classification {
+    font-size: 0.7em;
+}
+
+.feedback-stars label.checked {
+  color: #FFD700;
+}
+
+.legend-classification {
+  color: #FFD700;
+  font-size: 0.9em;
+  margin-right: 10px; /* adiciona um espaçamento à direita para separar o texto das estrelas */
+  margin-bottom: 0; /* remove o espaçamento inferior */
+}
+
+
+
+
+
+
+
+
+
+/******** ANIMATION ******/
+
+@keyframes load-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

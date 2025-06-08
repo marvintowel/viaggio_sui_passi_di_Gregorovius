@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-nl8g1fzkevHdGVE5z5nXpSTNkoeZngG6NVRdN0ETK8WAZJf2v/Vdumrx0Y/1TJWb" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-P+srVxoeHTbC6DfMQJ+QLK8zuQoQlKTc58JYnDMWZS8T+ujxMh92ePQJSktWqF8K" crossorigin=""></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style_localita.css">
+    
+    <!-- Script necessari -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <title>Viaggio sui passi di Gregorovius - Itinerario</title>
+
+</head>
+
+<body>
+    <!-- Barra di navigazione -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-map-marked-alt me-2"></i>Viaggio sui passi di Gregorovius</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-map-marker-alt me-1"></i> Località
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Genazzano.html">Genazzano</a></li>
+                            <li><a class="dropdown-item" href="Paliano.html">Paliano</a></li>
+                            <li><a class="dropdown-item" href="Fiuggi.html">Fiuggi</a></li>
+                            <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
+                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="itinerario.html"><i class="fas fa-route me-1"></i> Itinerario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="staff.html"><i class="fas fa-users me-1"></i> Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback.html"><i class="fas fa-comment me-1"></i> Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hospitality.html"><i class="fas fa-hotel me-1"></i> Hospitality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="hero" style="background-image: url('immagini/vista.jpg');">
+        <h1><i>Itinerario del Viaggio</i></h1>
+    </div>
+
+    <!-- Introduzione -->
+    <div class="container">
+        <section class="section" id="intro">
+            <h2 class="section-title">Il nostro itinerario</h2>
+            <p class="lead text-center">
+                Il nostro tour è stato organizzato principalmente per famiglie con o senza bambini, ma anche per tutti coloro che vogliono trascorrere le loro giornate alla scoperta della natura, cultura e storia di questa regione. Gli itinerari che abbiamo scelto sono brevi ma ricchi e piacevoli. Possiamo dire con sicurezza che soddisferanno le vostre esigenze.
+            </p>
+        </section>
+
+        <!-- Itinerario -->
+        <section class="section" id="itinerario">
+            <h2 class="section-title">Tour Guide</h2>
+            
+            <div class="row">
+                <!-- Giorno 1 - Genazzano -->
+                <div class="col-md-12 day-card">
+                    <h3 class="day-title">DAY 1 - Genazzano</h3>
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d190217.7616227988!2d12.62484086955063!3d41.84654372576705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x132f7d5518e048bf%3A0x556bbd1ff2a33c63!2sMacroarea%20di%20Ingegneria%20-%20Universit%C3%A0%20di%20Roma%20Tor%20Vergata%2C%20Via%20del%20Politecnico%2C%20Roma%2C%20RM!3m2!1d41.8546966!2d12.624270399999999!4m5!1s0x132f87ec11c829b5%3A0x376f96a3c82edacb!2s00030%20Genazzano%20RM!3m2!1d41.8289225!2d12.9727418!5e0!3m2!1sit!2sit!4v1746871098985!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Visita Genazzano, famosa per il suo castello e le tradizioni locali che la rendono unica.
+                                    </p>
+                                    <img src="immagini/Genazzano/genazzano.jpg" class="img-fluid rounded" alt="Genazzano">
+                                    <a href="Genazzano.html" class="btn btn-primary mt-3">Scopri Genazzano</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br> <br>
+            <div class="row">
+                <!-- Giorno 2 - Paliano -->
+                <div class="col-md-12 day-card">
+                    <h3 class="day-title">DAY 2 - Paliano</h3>
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d47576.676092575464!2d12.9737543370051!3d41.81662030901212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x132f87ec11c829b5%3A0x376f96a3c82edacb!2s00030%20Genazzano%20RM!3m2!1d41.8289225!2d12.9727418!4m5!1s0x1325626d987d75ef%3A0x38ff317652f74722!2sPaliano%2C%20FR!3m2!1d41.8049126!2d13.0596953!5e0!3m2!1sit!2sit!4v1746871318090!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Visita il bellissimo centro storico di Paliano, con le sue stradine acciottolate e i panorami mozzafiato.
+                                    </p>
+                                    <img src="immagini/Paliano/paliano.jpg" class="img-fluid rounded" alt="Paliano">
+                                    <a href="Paliano.html" class="btn btn-primary mt-3">Scopri Paliano</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br> <br>
+            <div class="row">
+                <!-- Giorno 3 - Fiuggi -->
+                <div class="col-md-12 day-card">
+                    <h3 class="day-title">DAY 3 - Fiuggi</h3>
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d95176.48991833761!2d13.059159562555836!3d41.80104473123599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x1325626d987d75ef%3A0x38ff317652f74722!2sPaliano%2C%20FR!3m2!1d41.8049126!2d13.0596953!4m5!1s0x132ff59c455d4875%3A0x5e99eff23fc1993c!2sFiuggi%2C%20FR!3m2!1d41.8031826!2d13.2239407!5e0!3m2!1sit!2sit!4v1746871553155!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Fiuggi è famosa per le sue acque termali e offre un'esperienza di relax unica.
+                                    </p>
+                                    <img src="immagini/Fiuggi/Fiuggi.webp" class="img-fluid rounded" alt="Fiuggi">
+                                    <a href="Fiuggi.html" class="btn btn-primary mt-3">Scopri Fiuggi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br> <br>
+            <div class="row">
+                <!-- Giorno 4 - Segni -->
+                <div class="col-md-12 day-card">
+                    <h3 class="day-title">DAY 4 - Segni</h3>
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d95261.33614983513!2d13.037873909114348!3d41.74388840196812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x132ff59c455d4875%3A0x5e99eff23fc1993c!2sFiuggi%2C%20FR!3m2!1d41.8031826!2d13.2239407!4m5!1s0x1325651e5c30d679%3A0x247a3581a91ae645!2sSegni%2C%20RM!3m2!1d41.6912987!2d13.022418199999999!5e0!3m2!1sit!2sit!4v1746871691595!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Scopri Segni, un antico borgo con una ricca storia e monumenti storici da esplorare.
+                                    </p>
+                                    <img src="immagini/Segni/Segni.webp" class="img-fluid rounded" alt="Segni">
+                                    <a href="Segni.html" class="btn btn-primary mt-3">Scopri Segni</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br> <br>
+            <div class="row">
+                <!-- Giorno 5 - Montecompatri -->
+                <div class="col-md-12 day-card">
+                    <h3 class="day-title">DAY 5 - Montecompatri</h3>
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d190488.83247331352!2d12.71466044701554!3d41.7552915323396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x1325651e5c30d679%3A0x247a3581a91ae645!2sSegni%2C%20RM!3m2!1d41.6912987!2d13.022418199999999!4m5!1s0x132580dde1fc2abd%3A0xa4468b9ea4c9f9d4!2sMonte%20Compatri%2C%20RM!3m2!1d41.8073085!2d12.7364967!5e0!3m2!1sit!2sit!4v1746871824331!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0""></iframe>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Montecompatri offre un'atmosfera tranquilla e panorami spettacolari, perfetti per una passeggiata.
+                                    </p>
+                                    <img src="immagini/Montecompatri/Monte_Compatri.jpg" class="img-fluid rounded" alt="Montecompatri">
+                                    <a href="Montecompatri.html" class="btn btn-primary mt-3">Scopri Montecompatri</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <img src="immagini/tor_vergata.png" height="50" alt="Università Tor Vergata">
+                <p>© Corso di Turismo Digitale 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+</html>

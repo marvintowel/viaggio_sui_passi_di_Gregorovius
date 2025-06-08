@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paliano</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha384-nl8g1fzkevHdGVE5z5nXpSTNkoeZngG6NVRdN0ETK8WAZJf2v/Vdumrx0Y/1TJWb" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-P+srVxoeHTbC6DfMQJ+QLK8zuQoQlKTc58JYnDMWZS8T+ujxMh92ePQJSktWqF8K" crossorigin=""></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style_localita.css">
+
+    <title>Viaggio sui passi di Gregorovius - Paliano</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-map-marked-alt me-2"></i>Viaggio sui passi di Gregorovius</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-map-marker-alt me-1"></i> Località
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Genazzano.html">Genazzano</a></li>
+                            <li><a class="dropdown-item active" href="Paliano.html">Paliano</a></li>
+                            <li><a class="dropdown-item" href="Fiuggi.html">Fiuggi</a></li>
+                            <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
+                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="itinerario.html"><i class="fas fa-route me-1"></i> Itinerario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="staff.html"><i class="fas fa-users me-1"></i> Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedback.html"><i class="fas fa-comment me-1"></i> Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hospitality.html"><i class="fas fa-hotel me-1"></i> Hospitality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero section con immagine di sfondo -->
+    <div class="hero" style="background-image: url('immagini/Paliano/paliano2.jpg');">
+        <h1>Benvenuti a Paliano</h1>
+    </div>
+
+    <div class="container">
+        <!-- Introduzione -->
+        <section class="section" id="intro">
+            <h2 class="section-title">Scopri Paliano</h2>
+            <p class="lead text-center">
+                Paliano è un comune italiano di 7.000 abitanti situato nella provincia di Frosinone, nel Lazio.
+                È noto per il suo centro storico e per le sue tradizioni culinarie.
+            </p>
+        </section>
+
+<!-- Punti di interesse -->
+        <section class="section" id="attrazioni">
+            <h2 class="section-title">Attrazioni Principali</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/palazzo_colonna.jpg" class="card-img-top" alt="Palazzo Colonna">
+                        <div class="card-body">
+                            <h5 class="card-title">Palazzo Colonna</h5>
+                            <p class="card-text">Storico edificio nobiliare situato nel centro del paese, rappresenta un importante esempio di architettura rinascimentale.</p>
+                            <a href="https://www.dimorestoricheitaliane.it/strutture/palazzo-colonna/" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/chiesa.jpg" class="card-img-top" alt="Chiesa di Sant'Andrea Apostolo">
+                        <div class="card-body">
+                            <h5 class="card-title">Chiesa di Sant'Andrea Apostolo</h5>
+                            <p class="card-text">Chiesa principale del borgo, risalente al XII secolo, con interni barocchi e opere d'arte sacra.</p>
+                            <a href="https://it.wikipedia.org/wiki/Chiesa_di_Sant%27Andrea_Apostolo_(Paliano)" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/selva.jpg" class="card-img-top" alt="Selva di Paliano">
+                        <div class="card-body">
+                            <h5 class="card-title">Selva di Paliano</h5>
+                            <p class="card-text">Area protetta di oltre 400 ettari, ideale per escursioni e attività all'aperto.</p>
+                            <a href="https://www.comune.paliano.fr.it/home/vivere/selva.html#" class="btn btn-primary">Scopri la storia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Informazioni sulla città -->
+        <section class="section" id="comune-info">
+            <h2 class="section-title">Informazioni Utili sul Comune</h2>
+            <div class="accordion" id="accordionComune">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneOne" aria-expanded="true" aria-controls="collapseComuneOne">
+                            Informazioni Generali
+                        </button>
+                    </h2>
+                    <div id="collapseComuneOne" class="accordion-collapse collapse show" aria-labelledby="headingComuneOne"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Coordinate: 41°48'N 13°03'E<br>
+                                Regione: Lazio<br>
+                                Provincia: Frosinone<br>
+                                <hr>
+                                Area comunale: 70 km²<br>
+                                Popolazione: 7.000 abitanti<br>
+                                Patrono: San Andrea Apostolo<br>
+                                Sito: <a href="https://www.comune.paliano.fr.it/home.html">www.comune.Paliano.fr.it</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneTwo" aria-expanded="false" aria-controls="collapseComuneTwo">
+                            Meteo
+                        </button>
+                    </h2>
+                    <div id="collapseComuneTwo" class="accordion-collapse collapse" aria-labelledby="headingComuneTwo"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <div class="col-lg-5">
+                                <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/4940/ffffff/fc9b2a/5e5e5e/ffffff/it" width=187 height=268 frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingComuneThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseComuneThree" aria-expanded="false" aria-controls="collapseComuneThree">
+                            Numeri Utili
+                        </button>
+                    </h2>
+                    <div id="collapseComuneThree" class="accordion-collapse collapse" aria-labelledby="headingComuneThree"
+                        data-bs-parent="#accordionComune">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Per emergenze o necessità urgenti:
+                            </p>
+                            <ul>
+                                <li>Carabinieri: 112</li>
+                                <li>Pronto Soccorso: 118</li>
+                                <li>Polizia Locale: +39 0775 578098</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Ristoranti -->
+        <section class="section" id="ristoranti">
+            <h2 class="section-title">Ristoranti e Cucina Locale</h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/ristorante1.jpg" class="card-img-top" alt="Locanda degli angeli">
+                        <div class="card-body">
+                            <h5 class="card-title">Locanda degli angeli</h5>
+                            <p class="card-text">
+                                Via Limiti Carnevali 10/c, 03018 Paliano Italia<br>
+                                +39 338 266 4396<br>
+                                Tutti i giorni orario continuato<br>
+                                Cucina italiana e mediterranea
+                            </p>
+                            <a href="https://www.tripadvisor.it/Restaurant_Review-g2334736-d5565095-Reviews-Locanda_degli_Angeli-Paliano_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Voglio un tavolo!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="immagini/Paliano/ristorante2.jpg" class="card-img-top" alt="L'Antico Granaio">
+                        <div class="card-body">
+                            <h5 class="card-title">L'Antico Granaio</h5>
+                            <p class="card-text">
+                                Via Palianese Sud, 03018 Paliano Italia<br>
+                                +39 0775 136 1415<br>
+                                Tutti i giorni 12:30-15:30 e 18:30-23:00 (chiuso martedì)<br>
+                                Cucina italiana e romana
+                            </p>
+                            <a href="https://www.tripadvisor.it/Restaurant_Review-g2334736-d25552972-Reviews-L_Antico_Granaio-Paliano_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Voglio un tavolo!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Hotel -->
+        <section class="section" id="hotel">
+            <h2 class="section-title">Dove Alloggiare</h2>
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="immagini/Paliano/hotel.jpg" class="img-fluid rounded-start" alt="Donna Vittori - Borgo Agricolo">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Donna Vittori - Borgo Agricolo</h5>
+                                    <p class="card-text">
+                                        <ul>
+                                            <li>A 4.5 km da Paliano</li>
+                                            <li>Dispone di bar, camere (con bagno privato) e Wi-Fi gratuito</li>
+                                            <li>L'aeroporto più vicino è quello di Roma Ciampino, a 50 km dalla struttura</li>
+                                            <li>Classificazione: 9.5/10</li>
+                                        </ul>
+                                    </p>
+                                    <a href="https://www.tripadvisor.it/Hotel_Review-g2334736-d28005292-Reviews-Donna_Vittori_Borgo_Agricolo-Paliano_Province_of_Frosinone_Lazio.html" class="btn btn-primary">Voglio vedere disponibilità!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mappa -->
+        <section class="section" id="mappa">
+            <h2 class="section-title">Mappa di Paliano</h2>
+            <div id="mapid" style="height: 400px; border-radius: 10px; box-shadow: var(--box-shadow);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28817.36114075213!2d13.05934171!3d41.80489346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f3d8e7e6e7e7e%3A0x123456789abcdef0!2sPaliano%2C%20FR%2C%20Italia!5e0!3m2!1sit!2sit!4v1685636686797!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <!-- Percorso consigliato -->
+        <section class="section" id="percorso">
+            <h2 class="section-title">Percorso consigliato</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d47596.27758380386!2d13.009946549647273!3d41.79022733617196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e2!4m5!1s0x132f89d32ea0cd39%3A0xd939e50536775f79!2sParcheggio%20Viale%20Umberto%20I%2C%20Viale%20Umberto%20I%2C%2035%2C%2003018%20Paliano%20FR!3m2!1d41.8053235!2d13.0557761!4m5!1s0x132f89df6559dff1%3A0x43a330cef5089155!2sPalazzo%20Ducale%2C%2003018%20Paliano%20FR!3m2!1d41.8050261!2d13.0550936!4m5!1s0x132f89df7230ddf1%3A0xa8052a70eb58f8bc!2sCollegiata%20di%20Sant%27Andrea%2C%20Piazza%20Marcantonio%20Colonna%2C%2003018%20Paliano%20FR!3m2!1d41.805503099999996!2d13.0554876!4m5!1s0x13256189a5f0df05%3A0x18893ef6c8844e06!2sSanta%20Maria%20di%20Pugliano%2C%2003018%20Paliano%20FR!3m2!1d41.774797899999996!2d13.084256!4m5!1s0x132562d8cca77d5d%3A0xafd5c861684f1!2sSelva%20di%20Paliano%20e%20Mola%20di%20Piscoli%2C%20Via%20Palianese%20Sud%2C%2003018%20Paliano%20FR!3m2!1d41.7742688!2d13.0180367!5e0!3m2!1sit!2sit!4v1747648331704!5m2!1sit!2sit" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="container text-center">
+                <i>
+                    Questo è il percorso che noi consigliamo per visitare Paliano, passando dai principali punti di interesse: Parcheggio Viale Umberto I, Palazzo Ducale, Collegiata di Sant'Andrea, Santa Maria di Pugliano e la Selva di Paliano. Segui la mappa per scoprire il meglio della città!
+                </i>
+                <hr>
+            </div>
+        </section>
+
+        <!-- Come arrivare -->
+        <section class="section" id="arrivare">
+            <h2 class="section-title">Come Arrivare</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            In Auto
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Paliano si trova a 58 km da Roma ed è facilmente raggiungibile in auto. Puoi prendere l'Autostrada
+                                A1 con uscita a Colleferro o Anagni-Fiuggi Terme.
+                                Da lì, segui le indicazioni per Paliano. Il viaggio in auto dura circa un'ora, a seconda del
+                                traffico. Se arrivi da Roma, puoi prendere la Via Casilina (SS6) in direzione di Frosinone e
+                                seguire le indicazioni per Paliano.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            In Treno
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                La stazione ferroviaria più vicina a Paliano è quella di Anagni-Fiuggi, situata a circa 10
+                                km da Paliano. Questa stazione è servita da treni regionali sulla linea
+                                Roma-Cassino-Napoli. Una volta arrivato alla stazione di Anagni-Fiuggi, puoi prendere un
+                                autobus locale per raggiungere Paliano.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            In Autobus
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="card-body text-success">
+                            <p class="card-text">
+                                Paliano è ben collegata in autobus con Roma e altre città vicine. Gli autobus COTRAL
+                                forniscono collegamenti frequenti da e per Roma, con diverse partenze giornaliere. La
+                                principale fermata degli autobus a Roma è la stazione Termini. Da qui, puoi prendere un
+                                autobus COTRAL direttamente per Paliano.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+    </div>
+
+    <br><br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Animazione per le sezioni
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+            
+            setTimeout(() => {
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }, 100);
+
+            // Inizializzazione della mappa
+            var map = L.map('mapid').setView([41.8049, 13.0593], 13); // Coordinate di Paliano
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([41.8049, 13.0593]).addTo(map)
+                .bindPopup('Paliano')
+                .openPopup();
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <img src="immagini/tor_vergata.png" height="50" alt="Università Tor Vergata">
+                <p>© Corso di Turismo Digitale 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

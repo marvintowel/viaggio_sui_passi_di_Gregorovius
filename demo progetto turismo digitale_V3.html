@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luoghi di Interesse</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <style>
+    /* Layout generale */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column; /* Disposizione verticale */
+      height: 100vh; /* Altezza dell'intera finestra */
+    }
+  
+    h1 {
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      background-color: #f4f4f4; /* Sfondo chiaro per evidenziare il titolo */
+      border-bottom: 1px solid #ddd; /* Linea divisoria */
+    }
+  
+    #map {
+      flex: 1; /* Occupa tutto lo spazio disponibile */
+      width: 100%; /* Larghezza completa */
+    }
+  </style>
+</head>
+<body>
+  <h1>Luoghi di Interesse nei Comuni del Lazio</h1>
+  <div id="map"></div>
+  <iframe>
+  <script>
+    // Inizializzazione della mappa
+    var map = L.map('map').setView([41.800, 13.150], 10); // Centro tra i comuni
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Punti di Interesse (GeoJSON)
+    var poiData = {
+      "type": "FeatureCollection",
+      "features": [
+        // Genazzano
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.97094, 41.83308] },
+          "properties": { 
+            "name": "Santuario della Madonna del Buon Consiglio", 
+            "description": "Santuario famoso per la sua spiritualità e arte sacra." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.97395, 41.83533] },
+          "properties": { 
+            "name": "Castello Colonna", 
+            "description": "Imponente struttura medievale che domina il borgo." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.97266, 41.82967] },
+          "properties": { 
+            "name": "Porta Romana", 
+            "description": "Antica porta di accesso al borgo, simbolo del sistema difensivo." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.9715, 41.8280] },
+          "properties": { 
+            "name": "Fontana del Vignola", 
+            "description": "Raffinata fontana rinascimentale nella piazza centrale." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.97382, 41.82879] },
+          "properties": { 
+            "name": "Ninfeo Bramante", 
+            "description": "Raffinata struttura rinascimentale situata nei pressi del Santuario della Madonna del Buon Consiglio." 
+          }
+        },
+        // Paliano
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.05252, 41.81130] }, 
+          "properties": { 
+            "name": "Palazzo Colonna", 
+            "description": "Storico palazzo situato nel centro di Paliano, accanto alla Chiesa di Sant'Andrea Apostolo." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.05550, 41.80564] }, 
+          "properties": { 
+            "name": "Chiesa di Sant'Andrea Apostolo", 
+            "description": "Chiesa situata in Piazza Colonna, nel cuore di Paliano." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.04602, 41.77749] }, 
+          "properties": { 
+            "name": "Mura Castellane e Porte Storiche", 
+            "description": "Antiche mura e porte storiche come Porta Romana, Porta Napoletana e Porta Furba." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.0160, 41.7675] }, 
+          "properties": { 
+            "name": "Monumento Naturale 'Selva di Paliano e Mola di Piscoli'", 
+            "description": "Area naturale protetta che si estende su circa 413 ettari." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.08344, 41.77560] }, 
+          "properties": { 
+            "name": "Santuario di Santa Maria di Pugliano", 
+            "description": "Santuario situato nella contrada omonima nelle campagne di Paliano." 
+          }
+        },
+        // Fiuggi
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.21251, 41.78870] },
+          "properties": { 
+            "name": "Terme di Fiuggi", 
+            "description": "Centro termale famoso per le sue acque curative e percorsi benessere." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.22153, 41.79110] },
+          "properties": { 
+            "name": "Fonte Bonifacio VIII", 
+            "description": "Storica fonte termale immersa nel verde." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.2175, 41.8020] },
+          "properties": { 
+            "name": "Lago di Canterno", 
+            "description": "Lago naturale ideale per passeggiate e relax." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.22043, 41.80431] },
+          "properties": { 
+            "name": "Collegiata di San Pietro Apostolo", 
+            "description": "La principale chiesa di Fiuggi, situata nel cuore del centro storico." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.21942, 41.79588] },
+          "properties": { 
+            "name": "Palazzo Fiuggi", 
+            "description": "un'elegante struttura rinomata per la sua combinazione di storia, lusso e benessere." 
+          }
+        },
+        
+        // Segni
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.01634, 41.69873] },
+          "properties": { 
+            "name": "Mura Poligonali", 
+            "description": "Antiche mura di epoca romana." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.02329, 41.69328] },
+          "properties": { 
+            "name": "Cattedrale di Santa Maria Assunta", 
+            "description": "Chiesa principale con elementi medievali." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.02358, 41.69311] },
+          "properties": { 
+            "name": "Museo Archeologico di Segni", 
+            "description": "Esposizione di reperti storici locali." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.02101, 41.69353] },
+          "properties": { 
+            "name": "Porta Saracena", 
+            "description": "Storica porta d'accesso al borgo." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [13.02456, 41.69715] },
+          "properties": { 
+            "name": "Chiesa di San Pietro", 
+            "description": "Chiesa con affreschi medievali." 
+          }
+        },
+        
+        // Montecompatri
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.73278, 41.80619] },
+          "properties": { 
+            "name": "Convento di San Silvestro", 
+            "description": "Convento con vista panoramica." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.73330, 41.80544] },
+          "properties": { 
+            "name": "Santuario della Madonna del Castagno", 
+            "description": "Santuario immerso nella natura." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.73709, 41.80837] },
+          "properties": { 
+            "name": "Palazzo Borghese", 
+            "description": "Palazzo storico nel borgo." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.73787, 41.80959] },
+          "properties": { 
+            "name": "Cattedrale di Santa Maria Assunta", 
+            "description": "Chiesa principale del paese." 
+          }
+        },
+        { 
+          "type": "Feature",
+          "geometry": { "type": "Point", "coordinates": [12.73736, 41.80643] },
+          "properties": { 
+            "name": "Parco Calahorra", 
+            "description": "Parco pubblico con aree verdi." 
+          }
+        }
+        ]
+    };
+
+    // Aggiunta dei POI alla mappa
+    L.geoJSON(poiData, {
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng);
+      },
+      onEachFeature: function(feature, layer) {
+        layer.bindPopup("<b>" + feature.properties.name + "</b><br>" + feature.properties.description);
+      }
+    }).addTo(map);
+
+    // Aggiunta dei percorsi per ogni comune
+
+    // Percorso nel Comune di Genazzano (colore viola)
+    var routeGenazzano = [
+      [41.83308,12.97094],
+      [41.83533,12.97395],
+      [41.82967,12.97266],
+      [41.8280,12.9715],
+      [41.82879,12.97382]
+    ];
+    L.polyline(routeGenazzano, {color: 'purple'}).bindPopup("Percorso nel Comune di Genazzano").addTo(map);
+
+    // Percorso aggiornato per il Comune di Paliano (colore blu)
+    var routePaliano = [
+      [41.81130,13.05252], 
+      [41.80564,13.05550], 
+      [41.77749,13.04602], 
+      [41.7675,13.0160], 
+      [41.77560,13.08344]  
+    ];
+    L.polyline(routePaliano, {color: 'blue'}).bindPopup("Percorso nel Comune di Paliano").addTo(map);
+
+    // Percorso nel Comune di Fiuggi (colore rosso)
+    var routeFiuggi = [
+      [41.78870,13.21251],
+      [41.79110,13.22153],
+      [41.8020,13.2175],
+      [41.80431,13.22043],
+      [41.79588,13.21942]
+    ];
+    L.polyline(routeFiuggi, {color: 'red'}).bindPopup("Percorso nel Comune di Fiuggi").addTo(map);
+
+    // Percorso nel Comune di Segni (colore verde)
+    var routeSegni = [
+      [41.69873,13.01634],
+      [41.69328,13.02329],
+      [41.69311,13.02358],
+      [41.69353,13.02101],
+      [41.69715,13.02456]
+    ];
+    L.polyline(routeSegni, {color: 'green'}).bindPopup("Percorso nel Comune di Segni").addTo(map);
+
+    // Percorso nel Comune di Montecompatri (colore arancione)
+    var routeMontecompatri = [
+      [41.80619,12.73278],
+      [41.80544,12.73330],
+      [41.80837,12.73709],
+      [41.80959,12.73787],
+      [41.80643,12.73736]
+    ];
+    L.polyline(routeMontecompatri, {color: 'orange'}).bindPopup("Percorso nel Comune di Montecompatri").addTo(map);
+
+    // Percorso tra i comuni nell'ordine richiesto
+    var routeComuni = [
+      [41.83308,12.97094], // Genazzano
+      [41.81130,13.05252], // Paliano
+      [41.78870,13.21251], // Fiuggi
+      [41.69873,13.01634], // Segni
+      [41.80619,12.73278] // Montecompatri
+    ];
+    L.polyline(routeComuni, {color: 'yellow'}).bindPopup("Percorso tra i Comuni").addTo(map);
+  </script>
+</body>
+</html>

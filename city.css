@@ -1,0 +1,38 @@
+
+.botao-restaurante {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-top: 10px;
+	background: #B22222;
+	padding: 10px 40px;
+	color: white;
+	border-style: outset;
+	font: bold 20px arial sans-serif;
+	border-radius: 8px;
+}
+
+.simbololista {
+  list-style-type: circle;
+}
+
+.botao-hotel{
+	background-color: #40E0D0;
+	color: black;
+	padding: 10px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font: bold 20px arial sans-serif;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.meteo{
+	background-color: #fff;
+}
+
+#mapid {
+		height: 400px;
+		width: 100%;
+		}
