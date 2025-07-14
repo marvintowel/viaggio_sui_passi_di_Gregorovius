@@ -51,7 +51,7 @@
                             <li><a class="dropdown-item" href="Paliano.html">Paliano</a></li>
                             <li><a class="dropdown-item" href="Fiuggi.html">Fiuggi</a></li>
                             <li><a class="dropdown-item" href="Segni.html">Segni</a></li>
-                            <li><a class="dropdown-item" href="Montecompatri.html">Montecompatri</a></li>
+                            <li><a class="dropdown-item" href="Monte Compatri.html">Monte Compatri</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -205,17 +205,17 @@
                 </div>
             </div>
             
-            <!-- Montecompatri -->
-            <div class="card mb-4" id="montecompatri">
+            <!-- Monte Compatri -->
+            <div class="card mb-4" id="Monte Compatri">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <div class="card-img-container">
-                            <img src="immagini/Montecompatri/Monte_Compatri.jpg" class="img-fluid experience-img" alt="Montecompatri">
+                            <img src="immagini/Monte Compatri/Monte_Compatri.jpg" class="img-fluid experience-img" alt="Monte Compatri">
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h3 class="card-title">Montecompatri</h3>
+                            <h3 class="card-title">Monte Compatri</h3>
                             <p class="card-text">Monte Compatri è un borgo dei Castelli Romani, situato su un colle di origine vulcanica a sud-est di Roma. Il centro storico, con le sue strade concentriche e le cantine scavate nel tufo, conserva un fascino autentico. La città si anima attorno a Palazzo Borghese (oggi Municipio) e alla chiesa di Santa Maria Assunta, con facciata di Carlo Rainaldi. Tra vicoli e piazzette spuntano fontane storiche come quella dell'Angelo, mentre nei dintorni si estendono boschi di castagno e percorsi geologici nel Parco Regionale dei Castelli Romani. Ogni stagione offre eventi culturali ed enogastronomici dedicati ai vini DOC e all'olio extravergine locale.</p>
                         </div>
                     </div>
@@ -578,7 +578,7 @@
                     }
                 },
 
-// Montecompatri
+// Monte Compatri
 // attrazione  
                 {   
                     "type": "Feature",
@@ -787,15 +787,15 @@
         ];
         L.polyline(routeSegni, { color: 'green' }).bindPopup("Percorso nel Comune di Segni").addTo(map);
 
-// Percorso nel Comune di Montecompatri (colore arancione)
-        var routeMontecompatri = [
+// Percorso nel Comune di Monte Compatri (colore arancione)
+        var routeMonte Compatri = [
             [41.80619, 12.73278],
             [41.80544, 12.73330],
             [41.80837, 12.73709],
             [41.80959, 12.73787],
             [41.80643, 12.73736]
         ];
-        L.polyline(routeMontecompatri, { color: 'orange' }).bindPopup("Percorso nel Comune di Montecompatri").addTo(map);
+        L.polyline(routeMonte Compatri, { color: 'orange' }).bindPopup("Percorso nel Comune di Monte Compatri").addTo(map);
 
 // Percorso tra i comuni nell'ordine richiesto
         var routeComuni = [
@@ -803,7 +803,7 @@
             [41.81130, 13.05252], // Paliano
             [41.78870, 13.21251], // Fiuggi
             [41.69873, 13.01634], // Segni
-            [41.80619, 12.73278] // Montecompatri
+            [41.80619, 12.73278] // Monte Compatri
         ];
         L.polyline(routeComuni, { color: 'yellow' }).bindPopup("Percorso tra i Comuni").addTo(map);
 

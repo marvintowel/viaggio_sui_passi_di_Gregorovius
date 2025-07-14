@@ -213,7 +213,7 @@
           }
         },
         
-        // Montecompatri
+        // Monte Compatri
         { 
           "type": "Feature",
           "geometry": { "type": "Point", "coordinates": [12.73278, 41.80619] },
@@ -309,15 +309,15 @@
     ];
     L.polyline(routeSegni, {color: 'green'}).bindPopup("Percorso nel Comune di Segni").addTo(map);
 
-    // Percorso nel Comune di Montecompatri (colore arancione)
-    var routeMontecompatri = [
+    // Percorso nel Comune di Monte Compatri (colore arancione)
+    var routeMonte Compatri = [
       [41.80619,12.73278],
       [41.80544,12.73330],
       [41.80837,12.73709],
       [41.80959,12.73787],
       [41.80643,12.73736]
     ];
-    L.polyline(routeMontecompatri, {color: 'orange'}).bindPopup("Percorso nel Comune di Montecompatri").addTo(map);
+    L.polyline(routeMonte Compatri, {color: 'orange'}).bindPopup("Percorso nel Comune di Monte Compatri").addTo(map);
 
     // Percorso tra i comuni nell'ordine richiesto
     var routeComuni = [
@@ -325,7 +325,7 @@
       [41.81130,13.05252], // Paliano
       [41.78870,13.21251], // Fiuggi
       [41.69873,13.01634], // Segni
-      [41.80619,12.73278] // Montecompatri
+      [41.80619,12.73278] // Monte Compatri
     ];
     L.polyline(routeComuni, {color: 'yellow'}).bindPopup("Percorso tra i Comuni").addTo(map);
   </script>
